@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>Harvest Moon</name>
+    <description></description>
+    <version>1.0.0.0</version>
+    <author></author>
+    <author-email></author-email>
+    <author-website>http://</author-website>
+    <app-id>com.mycompany.myapp</app-id>
+    <unique-id>2m2oqhlgof90t</unique-id>
+    <saved-with-version>27700</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="LocalStorage" version="1">Local storage</plugin>
+        <plugin author="Rex.Rainbow" id="Rex_Date" version="1">Date</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
+        <plugin author="Kevin Khantzis" id="trblsm_table" version="1">Table</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="DragnDrop" version="1">Drag &amp; Drop</behavior>
+        <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
+        <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
+    <used-effects />
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>320</width>
+        <height>180</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <first-layout>Home</first-layout>
+    <use-loader-layout>1</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox scale</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Progress bar &amp; logo</prop>
+        <prop name="Orientations">Landscape</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D asm.js</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Point</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="Player" sid="123494956473463">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="ScrollTo" sid="890294982943735">
+                    <behavior id="scrollto" />
+                </behavior-type>
+                <behavior-type name="8Direction" sid="787271675533071">
+                    <behavior id="EightDir" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="3" loop="1" name="Idle" pingpong="0" repeatcount="1" repeatto="0" sid="867452533589460" speed="10">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.666667" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Player1.png">
+                        <collision-poly>
+                            <point x="0.291667" y="0.291667" />
+                            <point x="0.5" y="0.25" />
+                            <point x="0.666667" y="0.333333" />
+                            <point x="0.833333" y="0.5" />
+                            <point x="0.708333" y="0.708333" />
+                            <point x="0.5" y="0.958333" />
+                            <point x="0.208333" y="0.791667" />
+                            <point x="0.166667" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.666667" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Player2.png">
+                        <collision-poly>
+                            <point x="0.25" y="0.25" />
+                            <point x="0.5" y="0.208333" />
+                            <point x="0.708333" y="0.291667" />
+                            <point x="0.75" y="0.5" />
+                            <point x="0.708333" y="0.708333" />
+                            <point x="0.5" y="0.958333" />
+                            <point x="0.208333" y="0.791667" />
+                            <point x="0.166667" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.666667" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Player3.png">
+                        <collision-poly>
+                            <point x="0.25" y="0.25" />
+                            <point x="0.5" y="0.208333" />
+                            <point x="0.708333" y="0.291667" />
+                            <point x="0.75" y="0.5" />
+                            <point x="0.708333" y="0.708333" />
+                            <point x="0.5" y="0.958333" />
+                            <point x="0.208333" y="0.791667" />
+                            <point x="0.166667" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="4" loop="1" name="Run" pingpong="0" repeatcount="1" repeatto="0" sid="294202142918144" speed="10">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.666667" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Player4.png">
+                        <collision-poly>
+                            <point x="0.25" y="0.25" />
+                            <point x="0.5" y="0.208333" />
+                            <point x="0.708333" y="0.291667" />
+                            <point x="0.75" y="0.5" />
+                            <point x="0.708333" y="0.708333" />
+                            <point x="0.5" y="0.958333" />
+                            <point x="0.208333" y="0.791667" />
+                            <point x="0.166667" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.666667" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Player5.png">
+                        <collision-poly>
+                            <point x="0.291667" y="0.291667" />
+                            <point x="0.5" y="0.25" />
+                            <point x="0.666667" y="0.333333" />
+                            <point x="0.833333" y="0.5" />
+                            <point x="0.708333" y="0.708333" />
+                            <point x="0.5" y="0.958333" />
+                            <point x="0.208333" y="0.791667" />
+                            <point x="0.166667" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.666667" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Player6.png">
+                        <collision-poly>
+                            <point x="0.25" y="0.25" />
+                            <point x="0.5" y="0.208333" />
+                            <point x="0.708333" y="0.291667" />
+                            <point x="0.75" y="0.5" />
+                            <point x="0.708333" y="0.708333" />
+                            <point x="0.5" y="1" />
+                            <point x="0.208333" y="0.791667" />
+                            <point x="0.166667" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.666667" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Player7.png">
+                        <collision-poly>
+                            <point x="0.291667" y="0.291667" />
+                            <point x="0.5" y="0.25" />
+                            <point x="0.666667" y="0.333333" />
+                            <point x="0.833333" y="0.5" />
+                            <point x="0.708333" y="0.708333" />
+                            <point x="0.5" y="1" />
+                            <point x="0.208333" y="0.791667" />
+                            <point x="0.166667" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Keyboard" sid="195630567083819">
+            <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="Tilemap" sid="457358085710305">
+            <plugin id="Tilemap" />
+            <texture original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Tileset\Tileset_Outdoor.png" />
+            <tiles />
+        </object-type>
+        <object-type name="Soil" sid="355563536898666">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="duration_total" sid="832478705738600" type="number" />
+                <instance-variable name="duration" sid="766318452398089" type="number" />
+                <instance-variable name="DEBUG" sid="721834360883665" type="string" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="DestroyOutsideLayout" sid="369336810494784">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="790056081821808" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Soil1.png">
+                        <collision-poly>
+                            <point x="0.125" y="0.125" />
+                            <point x="0.5" y="0.0625" />
+                            <point x="0.9375" y="0.0625" />
+                            <point x="0.9375" y="0.9375" />
+                            <point x="0.0625" y="0.9375" />
+                            <point x="0.0625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Soil2.png">
+                        <collision-poly>
+                            <point x="0.125" y="0.125" />
+                            <point x="0.5" y="0.0625" />
+                            <point x="0.9375" y="0.0625" />
+                            <point x="0.9375" y="0.9375" />
+                            <point x="0.0625" y="0.9375" />
+                            <point x="0.0625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ActionIndicator" sid="915975721022702">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="470174826864023" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="LocalStorage" sid="544909320851713">
+            <plugin id="LocalStorage" />
+        </object-type>
+        <object-type name="SoilArea" sid="844760285264236">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="274709215664052" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ToolIndicator" sid="796725646320116">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="4" loop="0" name="Tool" pingpong="0" repeatcount="1" repeatto="0" sid="250703787843442" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Tool1.png">
+                        <collision-poly>
+                            <point x="0.4375" y="0.4375" />
+                            <point x="0.5" y="0.1875" />
+                            <point x="0.8125" y="0.1875" />
+                            <point x="1" y="0.5" />
+                            <point x="0.5625" y="0.5625" />
+                            <point x="0.5" y="0.5625" />
+                            <point x="0.0625" y="0.9375" />
+                            <point x="0.375" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Tool3.png">
+                        <collision-poly>
+                            <point x="0.25" y="0.25" />
+                            <point x="0.5" y="0.25" />
+                            <point x="0.6875" y="0.3125" />
+                            <point x="1" y="0.5" />
+                            <point x="0.75" y="0.75" />
+                            <point x="0.5" y="0.9375" />
+                            <point x="0.1875" y="0.8125" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Item\Parsnip_Seeds.png">
+                        <collision-poly>
+                            <point x="0.125" y="0.125" />
+                            <point x="0.5" y="0" />
+                            <point x="0.875" y="0.125" />
+                            <point x="0.9375" y="0.5" />
+                            <point x="0.875" y="0.875" />
+                            <point x="0.5" y="1" />
+                            <point x="0.125" y="0.875" />
+                            <point x="0.0625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Plant" sid="428521722134456">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="duration_total" sid="218956168857629" type="number" />
+                <instance-variable name="duration" sid="630112137325942" type="number" />
+                <instance-variable name="phase_total" sid="375657976891644" type="number" />
+                <instance-variable name="name" sid="233406621797831" type="number" />
+                <instance-variable name="DEBUG" sid="729896831407494" type="string" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="DestroyOutsideLayout" sid="785460377605707">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="6" loop="0" name="Parsnip" pingpong="0" repeatcount="1" repeatto="0" sid="640928113523812" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.75" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Crops\Parsnip1.png">
+                        <collision-poly>
+                            <point x="0.5" y="0.65625" />
+                            <point x="0.75" y="0.875" />
+                            <point x="0.5" y="0.75" />
+                            <point x="0.3125" y="0.84375" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.75" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Crops\Parsnip2.png">
+                        <collision-poly>
+                            <point x="0.5" y="0.8125" />
+                            <point x="0.75" y="0.875" />
+                            <point x="0.5" y="0.90625" />
+                            <point x="0.375" y="0.8125" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.75" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Crops\Parsnip3.png">
+                        <collision-poly>
+                            <point x="0.5" y="0.6875" />
+                            <point x="0.5625" y="0.78125" />
+                            <point x="0.5" y="0.8125" />
+                            <point x="0.375" y="0.8125" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.75" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Crops\Parsnip4.png">
+                        <collision-poly>
+                            <point x="0.5" y="0.71875" />
+                            <point x="0.625" y="0.8125" />
+                            <point x="0.5" y="0.84375" />
+                            <point x="0.4375" y="0.78125" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.75" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Crops\Parsnip5.png">
+                        <collision-poly>
+                            <point x="0.5" y="0.5625" />
+                            <point x="0.875" y="0.5" />
+                            <point x="0.625" y="0.8125" />
+                            <point x="0.5" y="0.875" />
+                            <point x="0.375" y="0.8125" />
+                            <point x="0.1875" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.75" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Crops\Parsnip6.png">
+                        <collision-poly>
+                            <point x="0.8125" y="0.40625" />
+                            <point x="0.1875" y="0.40625" />
+                            <point x="1" y="0.5" />
+                            <point x="0.75" y="0.875" />
+                            <point x="0.25" y="0.875" />
+                            <point x="0.125" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Function" sid="218777488974417">
+            <plugin id="Function" />
+        </object-type>
+        <object-type global="1" name="Farm_Position" sid="190619625903855">
+            <plugin id="trblsm_table" />
+        </object-type>
+        <object-type name="BackgroundMenu" sid="455731666599201">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="159462890605030" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="InventoryBox" sid="850133196260348">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Index_Array_old" sid="284025685226310" type="number" />
+            </instance-variables>
+            <container>
+                <type>InventoryItem</type>
+                <type>InventoryBox</type>
+            </container>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="490619906395128" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Inventory Box.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="InventoryItem" sid="726415887559839">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Index_Array" sid="679511845381794" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="DragDrop" sid="946288387682732">
+                    <behavior id="DragnDrop" />
+                </behavior-type>
+            </behaviors>
+            <container>
+                <type>InventoryItem</type>
+                <type>InventoryBox</type>
+            </container>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Blank" pingpong="0" repeatcount="1" repeatto="0" sid="117723144833503" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="4" loop="0" name="Tool" pingpong="0" repeatcount="1" repeatto="0" sid="139493062919162" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Chest" sid="452085099374904">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="423630766889656">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="323664437512829">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <container>
+                <type>Chest_Array</type>
+                <type>Chest</type>
+            </container>
+            <animation-folder>
+                <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="310716343858180" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Item\Chest1.png">
+                        <collision-poly>
+                            <point x="0" y="0.25" />
+                            <point x="1" y="0.25" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Item\Chest2.png">
+                        <collision-poly>
+                            <point x="0" y="0.25" />
+                            <point x="1" y="0.25" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Item\Chest3.png">
+                        <collision-poly>
+                            <point x="0" y="0.25" />
+                            <point x="1" y="0.25" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Item\Chest4.png">
+                        <collision-poly>
+                            <point x="0" y="0.25" />
+                            <point x="1" y="0.25" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type global="1" name="Chest_Array" sid="891276085803766">
+            <plugin id="Arr" />
+            <container>
+                <type>Chest_Array</type>
+                <type>Chest</type>
+            </container>
+        </object-type>
+        <object-type global="1" name="Inventory_Array" sid="982219521382850">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type global="1" name="Date" sid="131008197021981">
+            <plugin id="Rex_Date" />
+        </object-type>
+        <object-type global="1" name="Master_Item" sid="508150340963849">
+            <plugin id="trblsm_table" />
+        </object-type>
+    </object-folder>
+    <families>
+        <family name="InventoryBoxs" plugin-id="Sprite" sid="255429778817200">
+            <members>
+                <member>InventoryBox</member>
+            </members>
+            <instance-variables>
+                <instance-variable name="Index_Array" sid="850563499083975" type="number" />
+            </instance-variables>
+        </family>
+    </families>
+    <layout-folder>
+        <layout>Farm.xml</layout>
+        <layout>Home.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>Farm.xml</event-sheet>
+        <event-sheet>Player.xml</event-sheet>
+        <event-sheet>Home.xml</event-sheet>
+        <event-sheet>Master.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Keyboard" uid="1" />
+        <global-instance type="LocalStorage" uid="6" />
+        <global-instance type="Function" uid="11" />
+    </global-instances>
+    <sounds-folder />
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>

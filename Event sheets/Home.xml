@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Home</name>
+    <events>
+        <variable constant="0" name="Start_Game_Date" sid="259073597748348" static="0" type="number">0</variable>
+        <include>Player</include>
+        <event-block sid="702722224782638">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="242402941117801" type="System" />
+            </conditions>
+            <actions>
+                <action id="5" name="Check item exists" sid="101367880240493" type="LocalStorage">
+                    <param id="0" name="Key">&quot;Start_Game_Date&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="821679876966879">
+            <conditions>
+                <condition id="10" name="On item missing" sid="724046359853719" type="LocalStorage">
+                    <param id="0" name="Key">&quot;Start_Game_Date&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set item" sid="304720585577002" type="LocalStorage">
+                    <param id="0" name="Key">&quot;Start_Game_Date&quot;</param>
+                    <param id="1" name="Value">Date.UnixTimestamp</param>
+                </action>
+                <action id="3" name="Set at XY" sid="760669922742854" type="Inventory_Array">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Y">0</param>
+                    <param id="2" name="Value">&quot;Hoe&quot;</param>
+                </action>
+                <action id="3" name="Set at XY" sid="894095038234449" type="Inventory_Array">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Y">1</param>
+                    <param id="2" name="Value">1</param>
+                </action>
+                <action id="3" name="Set at XY" sid="454802472962922" type="Inventory_Array">
+                    <param id="0" name="X">1</param>
+                    <param id="1" name="Y">0</param>
+                    <param id="2" name="Value">&quot;Water_Can&quot;</param>
+                </action>
+                <action id="3" name="Set at XY" sid="466954043305865" type="Inventory_Array">
+                    <param id="0" name="X">1</param>
+                    <param id="1" name="Y">1</param>
+                    <param id="2" name="Value">1</param>
+                </action>
+                <action id="3" name="Set at XY" sid="117552245786084" type="Inventory_Array">
+                    <param id="0" name="X">2</param>
+                    <param id="1" name="Y">0</param>
+                    <param id="2" name="Value">&quot;Parsnip_Seed&quot;</param>
+                </action>
+                <action id="3" name="Set at XY" sid="818201969567104" type="Inventory_Array">
+                    <param id="0" name="X">2</param>
+                    <param id="1" name="Y">1</param>
+                    <param id="2" name="Value">1</param>
+                </action>
+                <action id="0" name="Set item" sid="784546716213403" type="LocalStorage">
+                    <param id="0" name="Key">&quot;Inventory_Position&quot;</param>
+                    <param id="1" name="Value">Inventory_Array.AsJSON</param>
+                </action>
+                <action id="0" name="Set item" sid="911630592110583" type="LocalStorage">
+                    <param id="0" name="Key">&quot;Farm_Position&quot;</param>
+                    <param id="1" name="Value">Farm_Position.AsJSON</param>
+                </action>
+                <action id="0" name="Call function" sid="507503249151447" type="Function">
+                    <param id="0" name="Name">&quot;Check_Array_Game&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="840427708954548">
+            <conditions>
+                <condition id="9" name="On item exists" sid="327064169942618" type="LocalStorage">
+                    <param id="0" name="Key">&quot;Start_Game_Date&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="236075867767900" type="Function">
+                    <param id="0" name="Name">&quot;Check_Array_Game&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="502180266157985">
+            <conditions>
+                <condition id="1" name="On item get" sid="626812148790057" type="LocalStorage">
+                    <param id="0" name="Key">&quot;Start_Game_Date&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="358368414356689" type="System">
+                    <param id="0" name="Variable">Start_Game_Date</param>
+                    <param id="1" name="Value">LocalStorage.ItemValue</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="412303988887058">
+            <conditions>
+                <condition id="0" name="On function" sid="102254599923244" type="Function">
+                    <param id="0" name="Name">&quot;Check_Array_Game&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="814171796553542">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="419656808321618" type="System">
+                            <param id="0" name="Variable">Start_Game_Date</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Get item" sid="985291447949030" type="LocalStorage">
+                            <param id="0" name="Key">&quot;Start_Game_Date&quot;</param>
+                        </action>
+                        <action id="1" name="Get item" sid="511776189164535" type="LocalStorage">
+                            <param id="0" name="Key">&quot;Farm_Position&quot;</param>
+                        </action>
+                        <action id="1" name="Get item" sid="751559651273108" type="LocalStorage">
+                            <param id="0" name="Key">&quot;Inventory_Position&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="366241622397773">
+            <conditions>
+                <condition id="1" name="On item get" sid="916903725997068" type="LocalStorage">
+                    <param id="0" name="Key">&quot;Farm_Position&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Merge JSON To Table" sid="910374255413040" type="Farm_Position">
+                    <param id="0" name="JSON String">LocalStorage.ItemValue</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="954595724000222">
+            <conditions>
+                <condition id="1" name="On item get" sid="992209700713448" type="LocalStorage">
+                    <param id="0" name="Key">&quot;Inventory_Position&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="11" name="Load" sid="849766644209762" type="Inventory_Array">
+                    <param id="0" name="JSON">LocalStorage.ItemValue</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="908311145158222" title="Farm_Position" />
+    </events>
+</c2eventsheet>

@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Farm</name>
+    <events>
+        <include>Player</include>
+        <event-group description="" sid="929530148491891" title="Starter Layout">
+            <sub-events>
+                <event-block sid="345980462257201">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="475922002759564" type="System" />
+                        <condition id="0" name="For Each List" sid="779383787534783" type="Farm_Position" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="686183780646494" type="System">
+                            <param id="0" name="Variable">PositionX</param>
+                            <param id="1" name="Value">tokenat(Farm_Position.CurrListKey, 0, &quot;, &quot;)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="724846701920309" type="System">
+                            <param id="0" name="Variable">PositionY</param>
+                            <param id="1" name="Value">tokenat(Farm_Position.CurrListKey, 1, &quot;, &quot;)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="321328200926324">
+                            <conditions>
+                                <condition id="2" name="Compare Field Value" sid="418553121641501" type="Farm_Position">
+                                    <param id="0" name="If Field">&quot;Floor&quot;</param>
+                                    <param id="1" name="Is">0</param>
+                                    <param id="2" name="Value">&quot;Soil&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="574383719486449" type="System">
+                                    <param id="0" name="Object to create">Soil</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="X">PositionX</param>
+                                    <param id="3" name="Y">PositionY</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="206332137752730">
+                                    <conditions>
+                                        <condition id="2" name="Compare Field Value" sid="260526826517680" type="Farm_Position">
+                                            <param id="0" name="If Field">&quot;Floor Status&quot;</param>
+                                            <param id="1" name="Is">0</param>
+                                            <param id="2" name="Value">&quot;Wet&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="5" name="Set frame" sid="188518571922304" type="Soil">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <variable constant="0" name="phase_by_duration" sid="155029117587732" static="0" type="number">0</variable>
+                                <event-block sid="709094383106270">
+                                    <conditions>
+                                        <condition id="2" name="Compare Field Value" sid="674825997761390" type="Farm_Position">
+                                            <param id="0" name="If Field">&quot;Plant&quot;</param>
+                                            <param id="1" name="Is">1</param>
+                                            <param id="2" name="Value">&quot;&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="386804554774587" type="System">
+                                            <param id="0" name="Object to create">Plant</param>
+                                            <param id="1" name="Layer">1</param>
+                                            <param id="2" name="X">PositionX</param>
+                                            <param id="3" name="Y">PositionY</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="916123635497437" type="Plant">
+                                            <param id="0" name="Instance variable">duration</param>
+                                            <param id="1" name="Value">Farm_Position.CurrListValueAt(&quot;Plant Duration&quot;)</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="927951297665887" type="System">
+                                            <param id="0" name="Variable">phase_by_duration</param>
+                                            <param id="1" name="Value">Plant.duration_total/Plant.phase_total</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="155517560698893">
+                                            <conditions>
+                                                <condition id="2" name="Compare Field Value" sid="832415353949142" type="Farm_Position">
+                                                    <param id="0" name="If Field">&quot;Plant Duration&quot;</param>
+                                                    <param id="1" name="Is">4</param>
+                                                    <param id="2" name="Value">Plant.duration_total - (phase_by_duration * 1)</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions />
+                                        </event-block>
+                                        <event-block sid="124625453369933">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="984822731041616" type="System" />
+                                                <condition id="2" name="Compare Field Value" sid="648567116737203" type="Farm_Position">
+                                                    <param id="0" name="If Field">&quot;Plant Duration&quot;</param>
+                                                    <param id="1" name="Is">4</param>
+                                                    <param id="2" name="Value">Plant.duration_total - (phase_by_duration * 2)</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="799157169874045" type="Plant">
+                                                    <param id="0" name="Frame number">2</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="714315111398457">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="473854593389435" type="System" />
+                                                <condition id="2" name="Compare Field Value" sid="324455849649651" type="Farm_Position">
+                                                    <param id="0" name="If Field">&quot;Plant Duration&quot;</param>
+                                                    <param id="1" name="Is">4</param>
+                                                    <param id="2" name="Value">Plant.duration_total - (phase_by_duration * 3)</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="281989112204075" type="Plant">
+                                                    <param id="0" name="Frame number">3</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="898370414228014">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="189006522627231" type="System" />
+                                                <condition id="2" name="Compare Field Value" sid="665122228088689" type="Farm_Position">
+                                                    <param id="0" name="If Field">&quot;Plant Duration&quot;</param>
+                                                    <param id="1" name="Is">4</param>
+                                                    <param id="2" name="Value">Plant.duration_total - (phase_by_duration * 4)</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="570300181505926" type="Plant">
+                                                    <param id="0" name="Frame number">4</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="216807689774802">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="276659286756864" type="System" />
+                                                <condition id="2" name="Compare Field Value" sid="278411656042111" type="Farm_Position">
+                                                    <param id="0" name="If Field">&quot;Plant Duration&quot;</param>
+                                                    <param id="1" name="Is">3</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="5" name="Set frame" sid="796634910106834" type="Plant">
+                                                    <param id="0" name="Frame number">5</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="803658265991725">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="361466820678936" type="Keyboard">
+                    <param id="0" name="Key">32</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="941418326684343" type="System">
+                    <param id="0" name="Variable">PositionX</param>
+                    <param id="1" name="Value">(ActionIndicator.X+Pixel_mid)/Pixel+1</param>
+                </action>
+                <action id="-9" name="Set value" sid="933194347766750" type="System">
+                    <param id="0" name="Variable">PositionY</param>
+                    <param id="1" name="Value">(ActionIndicator.Y+Pixel_mid)/Pixel+1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="551101116665810">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="448094986454437" type="ActionIndicator">
+                            <param id="0" name="Object">SoilArea</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="792721198107726" type="System">
+                            <param id="0" name="Variable">Tool</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Hue&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="793389210791372">
+                            <conditions>
+                                <condition id="7" inverted="1" name="Compare Value" sid="780525396983018" type="Farm_Position">
+                                    <param id="0" name="In List">ActionIndicator.X&amp;&quot;, &quot;&amp;ActionIndicator.Y</param>
+                                    <param id="1" name="In Field">&quot;Floor&quot;</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Value">&quot;Soil&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="592526964135885" type="System">
+                                    <param id="0" name="Object to create">Soil</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="X">ActionIndicator.X</param>
+                                    <param id="3" name="Y">ActionIndicator.Y</param>
+                                </action>
+                                <action id="0" name="Set Value" sid="444594984415199" type="Farm_Position">
+                                    <param id="0" name="List">ActionIndicator.X&amp;&quot;, &quot;&amp;ActionIndicator.Y</param>
+                                    <param id="1" name="Field">&quot;Floor&quot;</param>
+                                    <param id="2" name="Value">&quot;Soil&quot;</param>
+                                </action>
+                                <action id="0" name="Set Value" sid="143535132181486" type="Farm_Position">
+                                    <param id="0" name="List">ActionIndicator.X&amp;&quot;, &quot;&amp;ActionIndicator.Y</param>
+                                    <param id="1" name="Field">&quot;Floor Status&quot;</param>
+                                    <param id="2" name="Value">&quot;Dry&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="667551073471429">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="724460930393096" type="ActionIndicator">
+                            <param id="0" name="Object">Soil</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="373501772591758" type="System">
+                            <param id="0" name="Variable">Tool</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Water Can&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="713708392668138" type="Soil">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="0" name="Set Value" sid="301082465008515" type="Farm_Position">
+                            <param id="0" name="List">ActionIndicator.X&amp;&quot;, &quot;&amp;ActionIndicator.Y</param>
+                            <param id="1" name="Field">&quot;Floor Status&quot;</param>
+                            <param id="2" name="Value">&quot;Wet&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="395214172190723">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="782776145008728" type="ActionIndicator">
+                            <param id="0" name="Object">Soil</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="974999079943531" type="System">
+                            <param id="0" name="First value">find(Tool, &quot;Seed&quot;)</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Second value">-1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="367717738306419">
+                            <conditions>
+                                <condition id="7" name="Compare Value" sid="426812594307358" type="Farm_Position">
+                                    <param id="0" name="In List">ActionIndicator.X&amp;&quot;, &quot;&amp;ActionIndicator.Y</param>
+                                    <param id="1" name="In Field">&quot;Plant&quot;</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Value">&quot;&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="369951485543106" type="System">
+                                    <param id="0" name="Object to create">Plant</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="X">ActionIndicator.X</param>
+                                    <param id="3" name="Y">ActionIndicator.Y</param>
+                                </action>
+                                <action id="0" name="Set Value" sid="900812162569576" type="Farm_Position">
+                                    <param id="0" name="List">ActionIndicator.X&amp;&quot;, &quot;&amp;ActionIndicator.Y</param>
+                                    <param id="1" name="Field">&quot;Plant&quot;</param>
+                                    <param id="2" name="Value">&quot;Parsnip&quot;</param>
+                                </action>
+                                <action id="0" name="Set Value" sid="743406205480838" type="Farm_Position">
+                                    <param id="0" name="List">ActionIndicator.X&amp;&quot;, &quot;&amp;ActionIndicator.Y</param>
+                                    <param id="1" name="Field">&quot;Plant Duration&quot;</param>
+                                    <param id="2" name="Value">Plant.duration_total</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="880642979327210">
+            <conditions>
+                <condition id="-18" name="On created" sid="337575699447055" type="Plant" />
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="366984031288228" type="Plant">
+                    <param id="0" name="Frame number">floor(random(2))</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
