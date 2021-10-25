@@ -252,10 +252,14 @@
             <actions>
                 <action id="-9" name="Set value" sid="331863685146885" type="System">
                     <param id="0" name="Variable">Tool</param>
-                    <param id="1" name="Value">&quot;Hue&quot;</param>
+                    <param id="1" name="Value">Inventory_Array.At(0, 0)</param>
                 </action>
-                <action id="5" name="Set frame" sid="579786899651894" type="ToolIndicator">
-                    <param id="0" name="Frame number">1</param>
+                <action id="4" name="Set animation" sid="579786899651894" type="ToolIndicator">
+                    <param id="0" name="Animation">Master_Item.Get(Tool, &quot;animation_name&quot;)</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="5" name="Set frame" sid="386971573383942" type="ToolIndicator">
+                    <param id="0" name="Frame number">Master_Item.Get(Tool, &quot;frame_no&quot;)</param>
                 </action>
             </actions>
         </event-block>
@@ -266,12 +270,16 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="-9" name="Set value" sid="113556191289407" type="System">
+                <action id="-9" name="Set value" sid="472208567182271" type="System">
                     <param id="0" name="Variable">Tool</param>
-                    <param id="1" name="Value">&quot;Water Can&quot;</param>
+                    <param id="1" name="Value">Inventory_Array.At(1, 0)</param>
                 </action>
-                <action id="5" name="Set frame" sid="627783740385126" type="ToolIndicator">
-                    <param id="0" name="Frame number">2</param>
+                <action id="4" name="Set animation" sid="601960386948216" type="ToolIndicator">
+                    <param id="0" name="Animation">Master_Item.Get(Tool, &quot;animation_name&quot;)</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="5" name="Set frame" sid="309812370666774" type="ToolIndicator">
+                    <param id="0" name="Frame number">Master_Item.Get(Tool, &quot;frame_no&quot;)</param>
                 </action>
             </actions>
         </event-block>
@@ -282,12 +290,16 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="-9" name="Set value" sid="483953027605505" type="System">
+                <action id="-9" name="Set value" sid="289634524107935" type="System">
                     <param id="0" name="Variable">Tool</param>
-                    <param id="1" name="Value">&quot;Pick Axe&quot;</param>
+                    <param id="1" name="Value">Inventory_Array.At(2, 0)</param>
                 </action>
-                <action id="5" name="Set frame" sid="998477142239116" type="ToolIndicator">
-                    <param id="0" name="Frame number">3</param>
+                <action id="4" name="Set animation" sid="419143236044244" type="ToolIndicator">
+                    <param id="0" name="Animation">Master_Item.Get(Tool, &quot;animation_name&quot;)</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="5" name="Set frame" sid="312980207317075" type="ToolIndicator">
+                    <param id="0" name="Frame number">Master_Item.Get(Tool, &quot;frame_no&quot;)</param>
                 </action>
             </actions>
         </event-block>
@@ -298,12 +310,16 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="-9" name="Set value" sid="812286829938866" type="System">
+                <action id="-9" name="Set value" sid="903396672752281" type="System">
                     <param id="0" name="Variable">Tool</param>
-                    <param id="1" name="Value">&quot;Parsnip Seed&quot;</param>
+                    <param id="1" name="Value">Inventory_Array.At(3, 0)</param>
                 </action>
-                <action id="5" name="Set frame" sid="717902476763045" type="ToolIndicator">
-                    <param id="0" name="Frame number">4</param>
+                <action id="4" name="Set animation" sid="748175419669068" type="ToolIndicator">
+                    <param id="0" name="Animation">Master_Item.Get(Tool, &quot;animation_name&quot;)</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="5" name="Set frame" sid="238741638509782" type="ToolIndicator">
+                    <param id="0" name="Frame number">Master_Item.Get(Tool, &quot;frame_no&quot;)</param>
                 </action>
             </actions>
         </event-block>
@@ -314,12 +330,16 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="-9" name="Set value" sid="849178656790999" type="System">
+                <action id="-9" name="Set value" sid="891108653656135" type="System">
                     <param id="0" name="Variable">Tool</param>
-                    <param id="1" name="Value">&quot;Parsnip Seed&quot;</param>
+                    <param id="1" name="Value">Inventory_Array.At(4, 0)</param>
                 </action>
-                <action id="5" name="Set frame" sid="460308193626268" type="ToolIndicator">
-                    <param id="0" name="Frame number">4</param>
+                <action id="4" name="Set animation" sid="379157318241524" type="ToolIndicator">
+                    <param id="0" name="Animation">Master_Item.Get(Tool, &quot;animation_name&quot;)</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="5" name="Set frame" sid="587556381877384" type="ToolIndicator">
+                    <param id="0" name="Frame number">Master_Item.Get(Tool, &quot;frame_no&quot;)</param>
                 </action>
             </actions>
         </event-block>

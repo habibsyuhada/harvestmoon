@@ -182,7 +182,7 @@
                         <condition id="-14" name="Compare variable" sid="792721198107726" type="System">
                             <param id="0" name="Variable">Tool</param>
                             <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;Hue&quot;</param>
+                            <param id="2" name="Value">&quot;Hoe&quot;</param>
                         </condition>
                     </conditions>
                     <actions />
@@ -225,7 +225,7 @@
                         <condition id="-14" name="Compare variable" sid="373501772591758" type="System">
                             <param id="0" name="Variable">Tool</param>
                             <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;Water Can&quot;</param>
+                            <param id="2" name="Value">&quot;Water_Can&quot;</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -277,6 +277,40 @@
                                     <param id="0" name="List">ActionIndicator.X&amp;&quot;, &quot;&amp;ActionIndicator.Y</param>
                                     <param id="1" name="Field">&quot;Plant Duration&quot;</param>
                                     <param id="2" name="Value">Plant.duration_total</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="302726752923874">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="846616974430503" type="ActionIndicator">
+                            <param id="0" name="Object">Chest</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="264032069277453">
+                            <conditions>
+                                <condition id="2" name="Is playing" sid="267726331070011" type="Chest">
+                                    <param id="0" name="Animation">&quot;Close&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="275437106139188" type="Chest">
+                                    <param id="0" name="Animation">&quot;Open&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="946079824463304">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="305763945365757" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="381897045439290" type="Chest">
+                                    <param id="0" name="Animation">&quot;Close&quot;</param>
+                                    <param id="1" name="From">1</param>
                                 </action>
                             </actions>
                         </event-block>

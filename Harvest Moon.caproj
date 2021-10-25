@@ -61,93 +61,68 @@
                 <behavior-type name="8Direction" sid="787271675533071">
                     <behavior id="EightDir" />
                 </behavior-type>
+                <behavior-type name="Solid" sid="414627661491829">
+                    <behavior id="solid" />
+                </behavior-type>
             </behaviors>
             <animation-folder>
                 <animation framecount="3" loop="1" name="Idle" pingpong="0" repeatcount="1" repeatto="0" sid="867452533589460" speed="10">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.666667" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Player1.png">
                         <collision-poly>
-                            <point x="0.291667" y="0.291667" />
-                            <point x="0.5" y="0.25" />
-                            <point x="0.666667" y="0.333333" />
-                            <point x="0.833333" y="0.5" />
-                            <point x="0.708333" y="0.708333" />
-                            <point x="0.5" y="0.958333" />
-                            <point x="0.208333" y="0.791667" />
-                            <point x="0.166667" y="0.5" />
+                            <point x="0.166667" y="0.666667" />
+                            <point x="0.833333" y="0.666667" />
+                            <point x="0.833333" y="1" />
+                            <point x="0.166667" y="1" />
                         </collision-poly>
                     </frame>
                     <frame duration="1" hotspotX="0.5" hotspotY="0.666667" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Player2.png">
                         <collision-poly>
-                            <point x="0.25" y="0.25" />
-                            <point x="0.5" y="0.208333" />
-                            <point x="0.708333" y="0.291667" />
-                            <point x="0.75" y="0.5" />
-                            <point x="0.708333" y="0.708333" />
-                            <point x="0.5" y="0.958333" />
-                            <point x="0.208333" y="0.791667" />
-                            <point x="0.166667" y="0.5" />
+                            <point x="0.166667" y="0.666667" />
+                            <point x="0.833333" y="0.666667" />
+                            <point x="0.833333" y="1" />
+                            <point x="0.166667" y="1" />
                         </collision-poly>
                     </frame>
                     <frame duration="1" hotspotX="0.5" hotspotY="0.666667" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Player3.png">
                         <collision-poly>
-                            <point x="0.25" y="0.25" />
-                            <point x="0.5" y="0.208333" />
-                            <point x="0.708333" y="0.291667" />
-                            <point x="0.75" y="0.5" />
-                            <point x="0.708333" y="0.708333" />
-                            <point x="0.5" y="0.958333" />
-                            <point x="0.208333" y="0.791667" />
-                            <point x="0.166667" y="0.5" />
+                            <point x="0.166667" y="0.666667" />
+                            <point x="0.833333" y="0.666667" />
+                            <point x="0.833333" y="1" />
+                            <point x="0.166667" y="1" />
                         </collision-poly>
                     </frame>
                 </animation>
                 <animation framecount="4" loop="1" name="Run" pingpong="0" repeatcount="1" repeatto="0" sid="294202142918144" speed="10">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.666667" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Player4.png">
                         <collision-poly>
-                            <point x="0.25" y="0.25" />
-                            <point x="0.5" y="0.208333" />
-                            <point x="0.708333" y="0.291667" />
-                            <point x="0.75" y="0.5" />
-                            <point x="0.708333" y="0.708333" />
-                            <point x="0.5" y="0.958333" />
-                            <point x="0.208333" y="0.791667" />
-                            <point x="0.166667" y="0.5" />
+                            <point x="0.166667" y="0.666667" />
+                            <point x="0.833333" y="0.666667" />
+                            <point x="0.833333" y="1" />
+                            <point x="0.166667" y="1" />
                         </collision-poly>
                     </frame>
                     <frame duration="1" hotspotX="0.5" hotspotY="0.666667" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Player5.png">
                         <collision-poly>
-                            <point x="0.291667" y="0.291667" />
-                            <point x="0.5" y="0.25" />
-                            <point x="0.666667" y="0.333333" />
-                            <point x="0.833333" y="0.5" />
-                            <point x="0.708333" y="0.708333" />
-                            <point x="0.5" y="0.958333" />
-                            <point x="0.208333" y="0.791667" />
-                            <point x="0.166667" y="0.5" />
+                            <point x="0.166667" y="0.666667" />
+                            <point x="0.833333" y="0.666667" />
+                            <point x="0.833333" y="1" />
+                            <point x="0.166667" y="1" />
                         </collision-poly>
                     </frame>
                     <frame duration="1" hotspotX="0.5" hotspotY="0.666667" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Player6.png">
                         <collision-poly>
-                            <point x="0.25" y="0.25" />
-                            <point x="0.5" y="0.208333" />
-                            <point x="0.708333" y="0.291667" />
-                            <point x="0.75" y="0.5" />
-                            <point x="0.708333" y="0.708333" />
-                            <point x="0.5" y="1" />
-                            <point x="0.208333" y="0.791667" />
-                            <point x="0.166667" y="0.5" />
+                            <point x="0.166667" y="0.666667" />
+                            <point x="0.833333" y="0.666667" />
+                            <point x="0.833333" y="1" />
+                            <point x="0.166667" y="1" />
                         </collision-poly>
                     </frame>
                     <frame duration="1" hotspotX="0.5" hotspotY="0.666667" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Player7.png">
                         <collision-poly>
-                            <point x="0.291667" y="0.291667" />
-                            <point x="0.5" y="0.25" />
-                            <point x="0.666667" y="0.333333" />
-                            <point x="0.833333" y="0.5" />
-                            <point x="0.708333" y="0.708333" />
-                            <point x="0.5" y="1" />
-                            <point x="0.208333" y="0.791667" />
-                            <point x="0.166667" y="0.5" />
+                            <point x="0.166667" y="0.666667" />
+                            <point x="0.833333" y="0.666667" />
+                            <point x="0.833333" y="1" />
+                            <point x="0.166667" y="1" />
                         </collision-poly>
                     </frame>
                 </animation>
@@ -402,7 +377,13 @@
                 <type>Chest</type>
             </container>
             <animation-folder>
-                <animation framecount="4" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="310716343858180" speed="0">
+                <animation framecount="4" loop="0" name="Close" pingpong="0" repeatcount="1" repeatto="0" sid="315412545156767" speed="10">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="4" loop="0" name="Open" pingpong="0" repeatcount="1" repeatto="0" sid="310716343858180" speed="10">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Item\Chest1.png">
                         <collision-poly>
                             <point x="0" y="0.25" />
