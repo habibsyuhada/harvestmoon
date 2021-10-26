@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Button</name>
+    <events>
+        <event-block sid="939641852248256">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="800032736730631" type="Button">
+                    <param id="0" name="Instance variable">func</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;Open Menu&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="215920696120477" type="Button">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="303522203064433">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="448577034429069" type="Button">
+                    <param id="0" name="Instance variable">func</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">&quot;Close Menu&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="344753085178981" type="Button">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="711357569845476">
+            <conditions>
+                <condition id="17" name="On tap object" sid="283369316326605" type="Touch">
+                    <param id="0" name="Object">Button</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="895104445407297">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="419922713342711" type="Button">
+                            <param id="0" name="Instance variable">func</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Open Menu&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="577344399957724" type="Button">
+                            <param id="0" name="Instance variable">func</param>
+                            <param id="1" name="Value">&quot;Close Menu&quot;</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="510483080673134" type="Button">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="999596334230724" type="System">
+                            <param id="0" name="Variable">IsMenuOpen</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="423332506040623">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="163972081684673" type="System" />
+                        <condition id="-7" name="Compare instance variable" sid="511757301097786" type="Button">
+                            <param id="0" name="Instance variable">func</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Close Menu&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="865543331697478" type="Button">
+                            <param id="0" name="Instance variable">func</param>
+                            <param id="1" name="Value">&quot;Open Menu&quot;</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="659316400145549" type="Button">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="108173991998354" type="System">
+                            <param id="0" name="Variable">IsMenuOpen</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="927769276206235">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="821864173423008" type="System">
+                                    <param id="0" name="Variable">IsChestOpen</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">-1</param>
+                                </condition>
+                                <condition id="-14" name="Pick by unique ID" sid="786289715735116" type="Chest">
+                                    <param id="0" name="Unique ID">IsChestOpen</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="731502751860761" type="Chest">
+                                    <param id="0" name="Animation">&quot;Close&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="364228749964775" type="System">
+                                    <param id="0" name="Variable">IsChestOpen</param>
+                                    <param id="1" name="Value">-1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

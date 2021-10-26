@@ -16,6 +16,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <event-sheet order="3">Home</event-sheet>
         <event-sheet order="4">Player</event-sheet>
         <event-sheet order="5">Master</event-sheet>
+        <event-sheet order="6">Button</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -44,5 +45,6 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/InventoryBox/" />
         <folder expanded="1" path="animation-folder/InventoryItem/" />
         <folder expanded="1" path="animation-folder/Chest/" />
+        <folder expanded="1" path="animation-folder/Button/" />
     </folders-expanded>
 </c2uistate>

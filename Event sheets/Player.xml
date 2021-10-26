@@ -3,8 +3,11 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Player</name>
     <events>
+        <include>Button</include>
         <include>Master</include>
         <variable constant="0" name="IsMenuOpen" sid="821075321530977" static="0" type="number">0</variable>
+        <variable constant="0" name="IsMenuTab" sid="488181387177148" static="0" type="number">1</variable>
+        <variable constant="0" name="IsChestOpen" sid="343258540128375" static="0" type="number">-1</variable>
         <variable constant="0" name="Pixel" sid="972126930540946" static="0" type="number">16</variable>
         <variable constant="0" name="Pixel_mid" sid="424082118313624" static="0" type="number">8</variable>
         <variable constant="0" name="DEBUG" sid="468946106447280" static="0" type="text"></variable>
@@ -473,51 +476,6 @@
         </event-block>
         <event-group description="" sid="449868082673665" title="Inventory">
             <sub-events>
-                <event-block sid="428981350579988">
-                    <conditions>
-                        <condition id="0" name="On key pressed" sid="685333860201597" type="Keyboard">
-                            <param id="0" name="Key">73</param>
-                        </condition>
-                    </conditions>
-                    <actions />
-                    <sub-events>
-                        <event-block sid="881465091511778">
-                            <conditions>
-                                <condition id="-14" name="Compare variable" sid="409488882028115" type="System">
-                                    <param id="0" name="Variable">IsMenuOpen</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">0</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-9" name="Set value" sid="372689347999619" type="System">
-                                    <param id="0" name="Variable">IsMenuOpen</param>
-                                    <param id="1" name="Value">1</param>
-                                </action>
-                                <action id="0" name="Call function" sid="338466263326297" type="Function">
-                                    <param id="0" name="Name">&quot;Render_Inventory&quot;</param>
-                                    <param id="1" name="Parameter {n}"></param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="803020848539299">
-                            <conditions>
-                                <condition id="-22" name="Else" sid="394526765790687" type="System" />
-                                <condition id="-14" name="Compare variable" sid="290364339439899" type="System">
-                                    <param id="0" name="Variable">IsMenuOpen</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">1</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-9" name="Set value" sid="908285835900731" type="System">
-                                    <param id="0" name="Variable">IsMenuOpen</param>
-                                    <param id="1" name="Value">0</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
-                </event-block>
                 <event-block sid="256935563099392">
                     <conditions>
                         <condition id="-14" name="Compare variable" sid="139749940178265" type="System">
@@ -530,20 +488,13 @@
                         <action id="-15" name="Set visible" sid="463257275278016" type="BackgroundMenu">
                             <param id="0" name="Visibility">0</param>
                         </action>
+                        <action id="-15" name="Set visible" sid="133249417737211" type="InventoryBox">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="567618743550697" type="InventoryItem">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
                     </actions>
-                    <sub-events>
-                        <event-block sid="319922335327116">
-                            <conditions />
-                            <actions>
-                                <action id="-15" name="Set visible" sid="133249417737211" type="InventoryBox">
-                                    <param id="0" name="Visibility">0</param>
-                                </action>
-                                <action id="-15" name="Set visible" sid="567618743550697" type="InventoryItem">
-                                    <param id="0" name="Visibility">0</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
                 </event-block>
                 <event-block sid="900676462319447">
                     <conditions>
@@ -560,7 +511,13 @@
                     </actions>
                     <sub-events>
                         <event-block sid="279530500454438">
-                            <conditions />
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="233752736433317" type="System">
+                                    <param id="0" name="Variable">IsChestOpen</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">-1</param>
+                                </condition>
+                            </conditions>
                             <actions>
                                 <action id="-15" name="Set visible" sid="931097732778516" type="InventoryBox">
                                     <param id="0" name="Visibility">1</param>
@@ -569,11 +526,61 @@
                                     <param id="0" name="Visibility">1</param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="884310285403187">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="785079409618923" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="479200559227896" type="Function">
+                                            <param id="0" name="Name">&quot;Render_Chest&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="541460719295225">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="448593182702902" type="System" />
+                                <condition id="-14" name="Compare variable" sid="883864701265454" type="System">
+                                    <param id="0" name="Variable">IsMenuTab</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="461038461393723" type="InventoryBox">
+                                    <param id="0" name="Instance variable">Menu</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;Inventory&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="532136559517531" type="InventoryBox">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="144945974912112" type="InventoryItem">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="247292640234907">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="890848082146366" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="699074058838241" type="Function">
+                                            <param id="0" name="Name">&quot;Render_Inventory&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>
                 <variable constant="0" name="D_Inv_X" sid="667605333592077" static="0" type="number">24</variable>
-                <variable constant="0" name="D_Inv_Y" sid="148920674334226" static="0" type="number">24</variable>
+                <variable constant="0" name="D_Chest_X" sid="272885019213764" static="0" type="number">190</variable>
+                <variable constant="0" name="D_Inv_Y" sid="148920674334226" static="0" type="number">48</variable>
                 <variable constant="0" name="Distance_Inv" sid="617686090209192" static="0" type="number">26</variable>
                 <variable constant="0" name="Index_Array_inv" sid="255275844125501" static="0" type="number">0</variable>
                 <event-block sid="525954119140148">
@@ -640,10 +647,6 @@
                                                 <action id="5" name="Set frame" sid="430066873616885" type="InventoryItem">
                                                     <param id="0" name="Frame number">Master_Item.Get(Inventory_Array.At(Index_Array_inv, 0), &quot;frame_no&quot;)</param>
                                                 </action>
-                                                <action id="-10" name="Set value" sid="248328639232237" type="InventoryItem">
-                                                    <param id="0" name="Instance variable">Index_Array</param>
-                                                    <param id="1" name="Value">Index_Array_inv</param>
-                                                </action>
                                                 <action id="-4" name="Set position to another object" sid="416715684002715" type="InventoryItem">
                                                     <param id="0" name="Object">InventoryBox</param>
                                                     <param id="1" name="Image point (optional)">0</param>
@@ -679,6 +682,10 @@
                                                 <action id="-10" name="Set value" sid="822416796764802" type="InventoryItem">
                                                     <param id="0" name="Instance variable">Index_Array</param>
                                                     <param id="1" name="Value">Index_Array_inv</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="248328639232237" type="InventoryBox">
+                                                    <param id="0" name="Instance variable">Menu</param>
+                                                    <param id="1" name="Value">&quot;Inventory&quot;</param>
                                                 </action>
                                                 <action id="-10" name="Set value" sid="432805898942769" type="InventoryBox">
                                                     <param id="0" name="Instance variable">Index_Array</param>
@@ -719,6 +726,179 @@
                         </event-block>
                     </sub-events>
                 </event-block>
+                <event-block sid="569239224844408">
+                    <conditions>
+                        <condition id="0" name="On function" sid="596705721778110" type="Function">
+                            <param id="0" name="Name">&quot;Render_Chest&quot;</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="942042122418320" type="System">
+                            <param id="0" name="Variable">IsChestOpen</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">-1</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="349634676559659" type="Chest">
+                            <param id="0" name="Unique ID">IsChestOpen</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="478003249660646" type="System">
+                            <param id="0" name="Variable">PositionX</param>
+                            <param id="1" name="Value">D_Chest_X</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="522723742234383" type="System">
+                            <param id="0" name="Variable">PositionY</param>
+                            <param id="1" name="Value">D_Inv_Y</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="317321648300962" type="System">
+                            <param id="0" name="Variable">Index_Array_inv</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="100998485683441">
+                            <conditions>
+                                <condition id="-10" name="For" sid="531763062055475" type="System">
+                                    <param id="0" name="Name">&quot;InventoryBoxY&quot;</param>
+                                    <param id="1" name="Start index">1</param>
+                                    <param id="2" name="End index">5</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="180431119905566">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="833361893290594" type="System">
+                                            <param id="0" name="Name">&quot;InventoryBoxX&quot;</param>
+                                            <param id="1" name="Start index">1</param>
+                                            <param id="2" name="End index">5</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="314316731405481" type="System">
+                                            <param id="0" name="Variable">DEBUG</param>
+                                            <param id="1" name="Value">DEBUG&amp;&quot;|&quot;&amp;PositionX&amp;&quot;, &quot;&amp;PositionY</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="435718550102391">
+                                            <conditions>
+                                                <condition id="-1" name="Compare X" sid="913662709028820" type="InventoryBox">
+                                                    <param id="0" name="Comparison">0</param>
+                                                    <param id="1" name="X co-ordinate">PositionX</param>
+                                                </condition>
+                                                <condition id="-2" name="Compare Y" sid="646485417581751" type="InventoryBox">
+                                                    <param id="0" name="Comparison">0</param>
+                                                    <param id="1" name="Y co-ordinate">PositionY</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="702106422217398" type="InventoryItem">
+                                                    <param id="0" name="Animation">&quot;Blank&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                                <action id="4" name="Set animation" sid="180232506822174" type="InventoryItem">
+                                                    <param id="0" name="Animation">Master_Item.Get(Chest_Array.At(Index_Array_inv, 0), &quot;animation_name&quot;)</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="293247388441439" type="InventoryItem">
+                                                    <param id="0" name="Frame number">Master_Item.Get(Chest_Array.At(Index_Array_inv, 0), &quot;frame_no&quot;)</param>
+                                                </action>
+                                                <action id="-4" name="Set position to another object" sid="112891764007948" type="InventoryItem">
+                                                    <param id="0" name="Object">InventoryBox</param>
+                                                    <param id="1" name="Image point (optional)">0</param>
+                                                </action>
+                                                <action id="-10" name="Add to" sid="385184707605729" type="System">
+                                                    <param id="0" name="Variable">Index_Array_inv</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="-10" name="Add to" sid="344494172981264" type="System">
+                                                    <param id="0" name="Variable">PositionX</param>
+                                                    <param id="1" name="Value">Distance_Inv</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="160916996239636">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="213910606363368" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="-3" name="Create object" sid="980253072692358" type="System">
+                                                    <param id="0" name="Object to create">InventoryBox</param>
+                                                    <param id="1" name="Layer">&quot;UI&quot;</param>
+                                                    <param id="2" name="X">PositionX</param>
+                                                    <param id="3" name="Y">PositionY</param>
+                                                </action>
+                                                <action id="4" name="Set animation" sid="611937461210517" type="InventoryItem">
+                                                    <param id="0" name="Animation">Master_Item.Get(Chest_Array.At(Index_Array_inv, 0), &quot;animation_name&quot;)</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                                <action id="5" name="Set frame" sid="703203061877697" type="InventoryItem">
+                                                    <param id="0" name="Frame number">Master_Item.Get(Chest_Array.At(Index_Array_inv, 0), &quot;frame_no&quot;)</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="177763485451457" type="InventoryItem">
+                                                    <param id="0" name="Instance variable">Index_Array</param>
+                                                    <param id="1" name="Value">Index_Array_inv</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="576082126608116" type="InventoryBox">
+                                                    <param id="0" name="Instance variable">Menu</param>
+                                                    <param id="1" name="Value">&quot;Chest&quot;</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="338563258925784" type="InventoryBox">
+                                                    <param id="0" name="Instance variable">Index_Array</param>
+                                                    <param id="1" name="Value">Index_Array_inv</param>
+                                                </action>
+                                                <action id="-10" name="Add to" sid="820219927293868" type="System">
+                                                    <param id="0" name="Variable">Index_Array_inv</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="-10" name="Add to" sid="124247851672398" type="System">
+                                                    <param id="0" name="Variable">PositionX</param>
+                                                    <param id="1" name="Value">Distance_Inv</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="191864518576948">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="785968610898431" type="System">
+                                                    <param id="0" name="First value">loopindex(&quot;InventoryBoxX&quot;)</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">5</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Add to" sid="181657591614511" type="System">
+                                                    <param id="0" name="Variable">PositionY</param>
+                                                    <param id="1" name="Value">Distance_Inv</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="146964266016662" type="System">
+                                                    <param id="0" name="Variable">PositionX</param>
+                                                    <param id="1" name="Value">D_Chest_X</param>
+                                                </action>
+                                            </actions>
+                                            <sub-events>
+                                                <event-block sid="366016410139898">
+                                                    <conditions>
+                                                        <condition id="-8" name="Compare two values" sid="635818611337478" type="System">
+                                                            <param id="0" name="First value">loopindex(&quot;InventoryBoxY&quot;)</param>
+                                                            <param id="1" name="Comparison">0</param>
+                                                            <param id="2" name="Second value">5</param>
+                                                        </condition>
+                                                    </conditions>
+                                                    <actions>
+                                                        <action id="0" name="Call function" sid="557055831243180" type="Function">
+                                                            <param id="0" name="Name">&quot;Render_Inventory&quot;</param>
+                                                            <param id="1" name="Parameter {n}"></param>
+                                                        </action>
+                                                    </actions>
+                                                </event-block>
+                                            </sub-events>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
                 <event-block sid="853580297014963">
                     <conditions>
                         <condition behavior="DragDrop" id="1" name="On drag start" sid="384577717344801" type="InventoryItem" />
@@ -733,16 +913,7 @@
                     <conditions>
                         <condition behavior="DragDrop" id="2" name="On drop" sid="515694688543641" type="InventoryItem" />
                     </conditions>
-                    <actions>
-                        <action id="-9" name="Set value" sid="638291851188804" type="System">
-                            <param id="0" name="Variable">Name_des</param>
-                            <param id="1" name="Value">Inventory_Array.At(InventoryBox.Index_Array, 0)</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="872636048126948" type="System">
-                            <param id="0" name="Variable">Qty_des</param>
-                            <param id="1" name="Value">Inventory_Array.At(InventoryBox.Index_Array, 1)</param>
-                        </action>
-                    </actions>
+                    <actions />
                     <sub-events>
                         <event-block sid="301632444645246">
                             <conditions>
@@ -757,32 +928,204 @@
                                     <param id="2" name="Second value">7</param>
                                 </condition>
                             </conditions>
-                            <actions>
-                                <action id="3" name="Set at XY" sid="430336878723193" type="Inventory_Array">
-                                    <param id="0" name="X">InventoryBox.Index_Array</param>
-                                    <param id="1" name="Y">0</param>
-                                    <param id="2" name="Value">Inventory_Array.At(InventoryBoxs.Index_Array, 0)</param>
-                                </action>
-                                <action id="3" name="Set at XY" sid="197415577269828" type="Inventory_Array">
-                                    <param id="0" name="X">InventoryBox.Index_Array</param>
-                                    <param id="1" name="Y">1</param>
-                                    <param id="2" name="Value">Inventory_Array.At(InventoryBoxs.Index_Array, 1)</param>
-                                </action>
-                                <action id="3" name="Set at XY" sid="560616948055381" type="Inventory_Array">
-                                    <param id="0" name="X">InventoryBoxs.Index_Array</param>
-                                    <param id="1" name="Y">0</param>
-                                    <param id="2" name="Value">Name_des</param>
-                                </action>
-                                <action id="3" name="Set at XY" sid="644581903617004" type="Inventory_Array">
-                                    <param id="0" name="X">InventoryBoxs.Index_Array</param>
-                                    <param id="1" name="Y">1</param>
-                                    <param id="2" name="Value">Qty_des</param>
-                                </action>
-                                <action id="0" name="Call function" sid="820665025597177" type="Function">
-                                    <param id="0" name="Name">&quot;Render_Inventory&quot;</param>
-                                    <param id="1" name="Parameter {n}"></param>
-                                </action>
-                            </actions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="834682684885268">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="124498671419284" type="InventoryBox">
+                                            <param id="0" name="Instance variable">Menu</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Inventory&quot;</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="143697914381019" type="InventoryBoxs">
+                                            <param id="0" name="Instance variable">Menu</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Inventory&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="638291851188804" type="System">
+                                            <param id="0" name="Variable">Name_des</param>
+                                            <param id="1" name="Value">Inventory_Array.At(InventoryBox.Index_Array, 0)</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="872636048126948" type="System">
+                                            <param id="0" name="Variable">Qty_des</param>
+                                            <param id="1" name="Value">Inventory_Array.At(InventoryBox.Index_Array, 1)</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="430336878723193" type="Inventory_Array">
+                                            <param id="0" name="X">InventoryBox.Index_Array</param>
+                                            <param id="1" name="Y">0</param>
+                                            <param id="2" name="Value">Inventory_Array.At(InventoryBoxs.Index_Array, 0)</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="197415577269828" type="Inventory_Array">
+                                            <param id="0" name="X">InventoryBox.Index_Array</param>
+                                            <param id="1" name="Y">1</param>
+                                            <param id="2" name="Value">Inventory_Array.At(InventoryBoxs.Index_Array, 1)</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="560616948055381" type="Inventory_Array">
+                                            <param id="0" name="X">InventoryBoxs.Index_Array</param>
+                                            <param id="1" name="Y">0</param>
+                                            <param id="2" name="Value">Name_des</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="644581903617004" type="Inventory_Array">
+                                            <param id="0" name="X">InventoryBoxs.Index_Array</param>
+                                            <param id="1" name="Y">1</param>
+                                            <param id="2" name="Value">Qty_des</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="820665025597177" type="Function">
+                                            <param id="0" name="Name">&quot;Render_Inventory&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="142050530585281">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="422781615872809" type="System" />
+                                        <condition id="-7" name="Compare instance variable" sid="806118809193016" type="InventoryBox">
+                                            <param id="0" name="Instance variable">Menu</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Chest&quot;</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="671543369878899" type="InventoryBoxs">
+                                            <param id="0" name="Instance variable">Menu</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Chest&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="885004176199678" type="System">
+                                            <param id="0" name="Variable">Name_des</param>
+                                            <param id="1" name="Value">Chest_Array.At(InventoryBox.Index_Array, 0)</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="722924950352961" type="System">
+                                            <param id="0" name="Variable">Qty_des</param>
+                                            <param id="1" name="Value">Chest_Array.At(InventoryBox.Index_Array, 1)</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="492313868703701" type="Chest_Array">
+                                            <param id="0" name="X">InventoryBox.Index_Array</param>
+                                            <param id="1" name="Y">0</param>
+                                            <param id="2" name="Value">Chest_Array.At(InventoryBoxs.Index_Array, 0)</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="217849205352308" type="Chest_Array">
+                                            <param id="0" name="X">InventoryBox.Index_Array</param>
+                                            <param id="1" name="Y">1</param>
+                                            <param id="2" name="Value">Chest_Array.At(InventoryBoxs.Index_Array, 1)</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="476441200094711" type="Chest_Array">
+                                            <param id="0" name="X">InventoryBoxs.Index_Array</param>
+                                            <param id="1" name="Y">0</param>
+                                            <param id="2" name="Value">Name_des</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="679824951403885" type="Chest_Array">
+                                            <param id="0" name="X">InventoryBoxs.Index_Array</param>
+                                            <param id="1" name="Y">1</param>
+                                            <param id="2" name="Value">Qty_des</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="664945161651623" type="Function">
+                                            <param id="0" name="Name">&quot;Render_Chest&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="307128442858887">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="195140812040789" type="System" />
+                                        <condition id="-7" name="Compare instance variable" sid="125425159846709" type="InventoryBox">
+                                            <param id="0" name="Instance variable">Menu</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Inventory&quot;</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="750119054978956" type="InventoryBoxs">
+                                            <param id="0" name="Instance variable">Menu</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Chest&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="336485166145106" type="System">
+                                            <param id="0" name="Variable">Name_des</param>
+                                            <param id="1" name="Value">Inventory_Array.At(InventoryBox.Index_Array, 0)</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="137603484906640" type="System">
+                                            <param id="0" name="Variable">Qty_des</param>
+                                            <param id="1" name="Value">Inventory_Array.At(InventoryBox.Index_Array, 1)</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="501801089734916" type="Inventory_Array">
+                                            <param id="0" name="X">InventoryBox.Index_Array</param>
+                                            <param id="1" name="Y">0</param>
+                                            <param id="2" name="Value">Chest_Array.At(InventoryBoxs.Index_Array, 0)</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="150930937525405" type="Inventory_Array">
+                                            <param id="0" name="X">InventoryBox.Index_Array</param>
+                                            <param id="1" name="Y">1</param>
+                                            <param id="2" name="Value">Chest_Array.At(InventoryBoxs.Index_Array, 1)</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="715816884298765" type="Chest_Array">
+                                            <param id="0" name="X">InventoryBoxs.Index_Array</param>
+                                            <param id="1" name="Y">0</param>
+                                            <param id="2" name="Value">Name_des</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="622283798201348" type="Chest_Array">
+                                            <param id="0" name="X">InventoryBoxs.Index_Array</param>
+                                            <param id="1" name="Y">1</param>
+                                            <param id="2" name="Value">Qty_des</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="222081943317092" type="Function">
+                                            <param id="0" name="Name">&quot;Render_Chest&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="774590031406859">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="477825823873229" type="System" />
+                                        <condition id="-7" name="Compare instance variable" sid="108976489970117" type="InventoryBox">
+                                            <param id="0" name="Instance variable">Menu</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Chest&quot;</param>
+                                        </condition>
+                                        <condition id="-7" name="Compare instance variable" sid="678846729708500" type="InventoryBoxs">
+                                            <param id="0" name="Instance variable">Menu</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Inventory&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="296345262448876" type="System">
+                                            <param id="0" name="Variable">Name_des</param>
+                                            <param id="1" name="Value">Chest_Array.At(InventoryBox.Index_Array, 0)</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="689499654878499" type="System">
+                                            <param id="0" name="Variable">Qty_des</param>
+                                            <param id="1" name="Value">Chest_Array.At(InventoryBox.Index_Array, 1)</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="789270430273968" type="Chest_Array">
+                                            <param id="0" name="X">InventoryBox.Index_Array</param>
+                                            <param id="1" name="Y">0</param>
+                                            <param id="2" name="Value">Inventory_Array.At(InventoryBoxs.Index_Array, 0)</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="396771947611452" type="Chest_Array">
+                                            <param id="0" name="X">InventoryBox.Index_Array</param>
+                                            <param id="1" name="Y">1</param>
+                                            <param id="2" name="Value">Inventory_Array.At(InventoryBoxs.Index_Array, 1)</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="395289078924289" type="Inventory_Array">
+                                            <param id="0" name="X">InventoryBoxs.Index_Array</param>
+                                            <param id="1" name="Y">0</param>
+                                            <param id="2" name="Value">Name_des</param>
+                                        </action>
+                                        <action id="3" name="Set at XY" sid="626868699034944" type="Inventory_Array">
+                                            <param id="0" name="X">InventoryBoxs.Index_Array</param>
+                                            <param id="1" name="Y">1</param>
+                                            <param id="2" name="Value">Qty_des</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="218155206951704" type="Function">
+                                            <param id="0" name="Name">&quot;Render_Chest&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                         <event-block sid="929794315009704">
                             <conditions>

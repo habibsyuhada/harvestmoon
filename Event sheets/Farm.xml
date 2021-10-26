@@ -301,18 +301,32 @@
                                     <param id="0" name="Animation">&quot;Open&quot;</param>
                                     <param id="1" name="From">1</param>
                                 </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="946079824463304">
-                            <conditions>
-                                <condition id="-22" name="Else" sid="305763945365757" type="System" />
-                            </conditions>
-                            <actions>
-                                <action id="4" name="Set animation" sid="381897045439290" type="Chest">
-                                    <param id="0" name="Animation">&quot;Close&quot;</param>
-                                    <param id="1" name="From">1</param>
+                                <action id="-9" name="Set value" sid="468073451932553" type="System">
+                                    <param id="0" name="Variable">IsMenuOpen</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="235477120152719" type="System">
+                                    <param id="0" name="Variable">IsChestOpen</param>
+                                    <param id="1" name="Value">Chest.UID</param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="846953975760077">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="553631952091197" type="Button">
+                                            <param id="0" name="Instance variable">func</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Open Menu&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="141184808484902" type="Button">
+                                            <param id="0" name="Instance variable">func</param>
+                                            <param id="1" name="Value">&quot;Close Menu&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>
