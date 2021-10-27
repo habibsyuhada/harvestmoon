@@ -548,18 +548,11 @@
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Value">1</param>
                                 </condition>
-                                <condition id="-7" name="Compare instance variable" sid="461038461393723" type="InventoryBox">
-                                    <param id="0" name="Instance variable">Menu</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">&quot;Inventory&quot;</param>
-                                </condition>
                             </conditions>
                             <actions>
-                                <action id="-15" name="Set visible" sid="532136559517531" type="InventoryBox">
-                                    <param id="0" name="Visibility">1</param>
-                                </action>
-                                <action id="-15" name="Set visible" sid="144945974912112" type="InventoryItem">
-                                    <param id="0" name="Visibility">1</param>
+                                <action id="-9" name="Set value" sid="124559859697468" type="System">
+                                    <param id="0" name="Variable">DEBUG</param>
+                                    <param id="1" name="Value">&quot;MASUK&quot;</param>
                                 </action>
                             </actions>
                             <sub-events>
@@ -571,6 +564,23 @@
                                         <action id="0" name="Call function" sid="699074058838241" type="Function">
                                             <param id="0" name="Name">&quot;Render_Inventory&quot;</param>
                                             <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="608728443291195">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="461038461393723" type="InventoryBox">
+                                            <param id="0" name="Instance variable">Menu</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Inventory&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-15" name="Set visible" sid="532136559517531" type="InventoryBox">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="144945974912112" type="InventoryItem">
+                                            <param id="0" name="Visibility">1</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -773,12 +783,7 @@
                                             <param id="2" name="End index">5</param>
                                         </condition>
                                     </conditions>
-                                    <actions>
-                                        <action id="-9" name="Set value" sid="314316731405481" type="System">
-                                            <param id="0" name="Variable">DEBUG</param>
-                                            <param id="1" name="Value">DEBUG&amp;&quot;|&quot;&amp;PositionX&amp;&quot;, &quot;&amp;PositionY</param>
-                                        </action>
-                                    </actions>
+                                    <actions />
                                     <sub-events>
                                         <event-block sid="435718550102391">
                                             <conditions>
