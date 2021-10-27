@@ -340,8 +340,8 @@
                         <x>0</x>
                         <y>0</y>
                         <z>0</z>
-                        <width>320</width>
-                        <height>184</height>
+                        <width>400</width>
+                        <height>225</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -425,7 +425,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>304</x>
+                        <x>384</x>
                         <y>16</y>
                         <z>0</z>
                         <width>16</width>
