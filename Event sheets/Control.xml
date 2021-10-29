@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Control</name>
+    <events>
+        <variable constant="0" name="Y_Teleport" sid="913729124497247" static="0" type="number">360</variable>
+        <variable constant="0" name="X_Teleport" sid="685876170022709" static="0" type="number">584</variable>
+        <event-block sid="739159920650363">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="133521466208676" type="System" />
+                <condition id="-14" name="Compare variable" sid="270682206922863" type="System">
+                    <param id="0" name="Variable">X_Teleport</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">-1</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="104451251639298" type="System">
+                    <param id="0" name="Variable">Y_Teleport</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">-1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="854879763174660" type="Player">
+                    <param id="0" name="X">X_Teleport</param>
+                    <param id="1" name="Y">Y_Teleport</param>
+                </action>
+                <action id="-3" name="Set position" sid="546968221428785" type="ActionIndicator">
+                    <param id="0" name="X">X_Teleport</param>
+                    <param id="1" name="Y">Y_Teleport+16</param>
+                </action>
+                <action id="-9" name="Set value" sid="528006025806094" type="System">
+                    <param id="0" name="Variable">X_Teleport</param>
+                    <param id="1" name="Value">-1</param>
+                </action>
+                <action id="-9" name="Set value" sid="472352973000971" type="System">
+                    <param id="0" name="Variable">Y_Teleport</param>
+                    <param id="1" name="Value">-1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="251584159508738">
+            <conditions>
+                <condition id="9" name="Is overlapping at offset" sid="691199475844012" type="Player">
+                    <param id="0" name="Object">Teleportation_Point</param>
+                    <param id="1" name="Offset X">-8</param>
+                    <param id="2" name="Offset Y">-8</param>
+                </condition>
+                <condition id="9" name="Is overlapping at offset" sid="183609881117234" type="Player">
+                    <param id="0" name="Object">Teleportation_Point</param>
+                    <param id="1" name="Offset X">8</param>
+                    <param id="2" name="Offset Y">8</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="297491379652537" type="Teleportation_Point">
+                    <param id="0" name="Instance variable">Need_Action</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="360128204525124" type="Function">
+                    <param id="0" name="Name">&quot;C_Teleportation&quot;</param>
+                    <param id="1" name="Parameter {n}">Teleportation_Point.UID</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="284431463469301">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="995528149063384" type="Keyboard">
+                    <param id="0" name="Key">32</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="605900558339992" type="System">
+                    <param id="0" name="Variable">PositionX</param>
+                    <param id="1" name="Value">(ActionIndicator.X+Pixel_mid)/Pixel+1</param>
+                </action>
+                <action id="-9" name="Set value" sid="750023552910589" type="System">
+                    <param id="0" name="Variable">PositionY</param>
+                    <param id="1" name="Value">(ActionIndicator.Y+Pixel_mid)/Pixel+1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="619037551545855">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="228501875255306" type="ActionIndicator">
+                            <param id="0" name="Object">SoilArea</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="189906877976428" type="System">
+                            <param id="0" name="Variable">Tool</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Hoe&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="310468423735936">
+                            <conditions>
+                                <condition id="7" inverted="1" name="Compare Value" sid="488321447472581" type="Farm_Position">
+                                    <param id="0" name="In List">ActionIndicator.X&amp;&quot;, &quot;&amp;ActionIndicator.Y</param>
+                                    <param id="1" name="In Field">&quot;Floor&quot;</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Value">&quot;Soil&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="506130610339326" type="System">
+                                    <param id="0" name="Object to create">Soil</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="X">ActionIndicator.X</param>
+                                    <param id="3" name="Y">ActionIndicator.Y</param>
+                                </action>
+                                <action id="0" name="Set Value" sid="539629052466636" type="Farm_Position">
+                                    <param id="0" name="List">ActionIndicator.X&amp;&quot;, &quot;&amp;ActionIndicator.Y</param>
+                                    <param id="1" name="Field">&quot;Floor&quot;</param>
+                                    <param id="2" name="Value">&quot;Soil&quot;</param>
+                                </action>
+                                <action id="0" name="Set Value" sid="260536620913000" type="Farm_Position">
+                                    <param id="0" name="List">ActionIndicator.X&amp;&quot;, &quot;&amp;ActionIndicator.Y</param>
+                                    <param id="1" name="Field">&quot;Floor Status&quot;</param>
+                                    <param id="2" name="Value">&quot;Dry&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="583027495715942">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="938844156450327" type="ActionIndicator">
+                            <param id="0" name="Object">Soil</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="349368588321775" type="System">
+                            <param id="0" name="Variable">Tool</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Water_Can&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="232013168772050" type="Soil">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                        <action id="0" name="Set Value" sid="778272623830563" type="Farm_Position">
+                            <param id="0" name="List">ActionIndicator.X&amp;&quot;, &quot;&amp;ActionIndicator.Y</param>
+                            <param id="1" name="Field">&quot;Floor Status&quot;</param>
+                            <param id="2" name="Value">&quot;Wet&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="200296448478994">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="703633741343582" type="ActionIndicator">
+                            <param id="0" name="Object">Soil</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="578275090262391" type="System">
+                            <param id="0" name="First value">find(Tool, &quot;Seed&quot;)</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Second value">-1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="212303793121775">
+                            <conditions>
+                                <condition id="7" name="Compare Value" sid="248584718422196" type="Farm_Position">
+                                    <param id="0" name="In List">ActionIndicator.X&amp;&quot;, &quot;&amp;ActionIndicator.Y</param>
+                                    <param id="1" name="In Field">&quot;Plant&quot;</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Value">&quot;&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="973388081568461" type="System">
+                                    <param id="0" name="Object to create">Plant</param>
+                                    <param id="1" name="Layer">1</param>
+                                    <param id="2" name="X">ActionIndicator.X</param>
+                                    <param id="3" name="Y">ActionIndicator.Y</param>
+                                </action>
+                                <action id="0" name="Set Value" sid="471109260388127" type="Farm_Position">
+                                    <param id="0" name="List">ActionIndicator.X&amp;&quot;, &quot;&amp;ActionIndicator.Y</param>
+                                    <param id="1" name="Field">&quot;Plant&quot;</param>
+                                    <param id="2" name="Value">&quot;Parsnip&quot;</param>
+                                </action>
+                                <action id="0" name="Set Value" sid="142953387320787" type="Farm_Position">
+                                    <param id="0" name="List">ActionIndicator.X&amp;&quot;, &quot;&amp;ActionIndicator.Y</param>
+                                    <param id="1" name="Field">&quot;Plant Duration&quot;</param>
+                                    <param id="2" name="Value">Plant.duration_total</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="432948444069708">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="649364638606037" type="ActionIndicator">
+                            <param id="0" name="Object">Chest</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="859549210680235">
+                            <conditions>
+                                <condition id="2" name="Is playing" sid="881391974576980" type="Chest">
+                                    <param id="0" name="Animation">&quot;Close&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="693976559264450" type="Chest">
+                                    <param id="0" name="Animation">&quot;Open&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="275121416979518" type="System">
+                                    <param id="0" name="Variable">IsMenuOpen</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="711993383750400" type="System">
+                                    <param id="0" name="Variable">IsChestOpen</param>
+                                    <param id="1" name="Value">Chest.UID</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="433406471896644">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="279296243207527" type="Button">
+                                            <param id="0" name="Instance variable">func</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Open Menu&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="880282971403282" type="Button">
+                                            <param id="0" name="Instance variable">func</param>
+                                            <param id="1" name="Value">&quot;Close Menu&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="156171423555020">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="328390213125349" type="ActionIndicator">
+                            <param id="0" name="Object">C_Sleep</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="382627708928276" type="Function">
+                            <param id="0" name="Name">&quot;Sleep&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="341204873995316">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="185575478275914" type="ActionIndicator">
+                            <param id="0" name="Object">Teleportation_Point</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="462484559854532" type="Teleportation_Point">
+                            <param id="0" name="Instance variable">Need_Action</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="526839254708222" type="Function">
+                            <param id="0" name="Name">&quot;C_Teleportation&quot;</param>
+                            <param id="1" name="Parameter {n}">Teleportation_Point.UID</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="414166454068894">
+            <conditions>
+                <condition id="-18" name="On created" sid="755727283194571" type="Plant" />
+            </conditions>
+            <actions>
+                <action id="5" name="Set frame" sid="281192870728379" type="Plant">
+                    <param id="0" name="Frame number">floor(random(2))</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="734871980724709">
+            <conditions>
+                <condition id="0" name="On function" sid="906006620700158" type="Function">
+                    <param id="0" name="Name">&quot;Sleep&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="SoilStatus" sid="160035981800448" static="0" type="number">0</variable>
+                <event-block sid="137822282960380">
+                    <conditions>
+                        <condition id="0" name="For Each List" sid="328905070201548" type="Farm_Position" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="240293072627746">
+                            <conditions>
+                                <condition id="2" name="Compare Field Value" sid="543857827716042" type="Farm_Position">
+                                    <param id="0" name="If Field">&quot;Floor&quot;</param>
+                                    <param id="1" name="Is">0</param>
+                                    <param id="2" name="Value">&quot;Soil&quot;</param>
+                                </condition>
+                                <condition id="2" name="Compare Field Value" sid="735258617203813" type="Farm_Position">
+                                    <param id="0" name="If Field">&quot;Floor Status&quot;</param>
+                                    <param id="1" name="Is">0</param>
+                                    <param id="2" name="Value">&quot;Wet&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set Value" sid="327579933179625" type="Farm_Position">
+                                    <param id="0" name="List">Farm_Position.CurrListKey</param>
+                                    <param id="1" name="Field">&quot;Floor Status&quot;</param>
+                                    <param id="2" name="Value">&quot;Dry&quot;</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="161291163587807">
+                                    <conditions>
+                                        <condition id="2" name="Compare Field Value" sid="520382197163505" type="Farm_Position">
+                                            <param id="0" name="If Field">&quot;Plant Duration&quot;</param>
+                                            <param id="1" name="Is">4</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="2" name="Subtract From Value" sid="698627767149416" type="Farm_Position">
+                                            <param id="0" name="List">Farm_Position.CurrListKey</param>
+                                            <param id="1" name="Field">&quot;Plant Duration&quot;</param>
+                                            <param id="2" name="Subtract">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="108168151708131">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="740319698853105" type="System">
+                                    <param id="0" name="First value">Farm_Position.LoopIndex</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">Farm_Position.ListCount</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="788169277700946" type="System">
+                                    <param id="0" name="Variable">SoilStatus</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="810046385974446">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="228470795189290" type="System">
+                                    <param id="0" name="Variable">SoilStatus</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set item" sid="281191671167808" type="LocalStorage">
+                                    <param id="0" name="Key">&quot;Farm_Position&quot;</param>
+                                    <param id="1" name="Value">Farm_Position.AsJSON</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="401099366903688" type="System">
+                                    <param id="0" name="Layout">Home</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="618214256687158">
+            <conditions>
+                <condition id="0" name="On function" sid="875134521626869" type="Function">
+                    <param id="0" name="Name">&quot;C_Teleportation&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="378815269986960" type="System">
+                    <param id="0" name="Variable">DEBUG</param>
+                    <param id="1" name="Value">Function.Param(0)</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="831024598070358">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="502557369635435" type="Teleportation_Point">
+                            <param id="0" name="Unique ID">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="774201198688713" type="System">
+                            <param id="0" name="Variable">X_Teleport</param>
+                            <param id="1" name="Value">Teleportation_Point.X_coor</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="111735503506669" type="System">
+                            <param id="0" name="Variable">Y_Teleport</param>
+                            <param id="1" name="Value">Teleportation_Point.Y_coor</param>
+                        </action>
+                        <action id="-25" name="Go to layout (by name)" sid="165858562603950" type="System">
+                            <param id="0" name="Layout">Teleportation_Point.Scene_name</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

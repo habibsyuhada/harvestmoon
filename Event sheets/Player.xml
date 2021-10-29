@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Player</name>
     <events>
+        <include>Control</include>
         <include>Button</include>
         <include>Master</include>
         <variable constant="0" name="IsMenuOpen" sid="821075321530977" static="0" type="number">0</variable>
@@ -369,110 +370,6 @@
                     <param id="0" name="Layout">Farm</param>
                 </action>
             </actions>
-        </event-block>
-        <event-block sid="347907382223964">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="259597470085063" type="Keyboard">
-                    <param id="0" name="Key">220</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="0" name="Call function" sid="874103795849049" type="Function">
-                    <param id="0" name="Name">&quot;Sleep&quot;</param>
-                    <param id="1" name="Parameter {n}"></param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="308589837842005">
-            <conditions>
-                <condition id="0" name="On function" sid="490699121373555" type="Function">
-                    <param id="0" name="Name">&quot;Sleep&quot;</param>
-                </condition>
-            </conditions>
-            <actions />
-            <sub-events>
-                <variable constant="0" name="SoilStatus" sid="538139742869985" static="0" type="number">0</variable>
-                <event-block sid="345125409727266">
-                    <conditions>
-                        <condition id="0" name="For Each List" sid="469892263158425" type="Farm_Position" />
-                    </conditions>
-                    <actions />
-                    <sub-events>
-                        <event-block sid="178440596571723">
-                            <conditions>
-                                <condition id="2" name="Compare Field Value" sid="327684152301048" type="Farm_Position">
-                                    <param id="0" name="If Field">&quot;Floor&quot;</param>
-                                    <param id="1" name="Is">0</param>
-                                    <param id="2" name="Value">&quot;Soil&quot;</param>
-                                </condition>
-                                <condition id="2" name="Compare Field Value" sid="482967961601989" type="Farm_Position">
-                                    <param id="0" name="If Field">&quot;Floor Status&quot;</param>
-                                    <param id="1" name="Is">0</param>
-                                    <param id="2" name="Value">&quot;Wet&quot;</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="0" name="Set Value" sid="853878587776918" type="Farm_Position">
-                                    <param id="0" name="List">Farm_Position.CurrListKey</param>
-                                    <param id="1" name="Field">&quot;Floor Status&quot;</param>
-                                    <param id="2" name="Value">&quot;Dry&quot;</param>
-                                </action>
-                            </actions>
-                            <sub-events>
-                                <event-block sid="349253155527730">
-                                    <conditions>
-                                        <condition id="2" name="Compare Field Value" sid="904877054633449" type="Farm_Position">
-                                            <param id="0" name="If Field">&quot;Plant Duration&quot;</param>
-                                            <param id="1" name="Is">4</param>
-                                            <param id="2" name="Value">0</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="2" name="Subtract From Value" sid="770897117364962" type="Farm_Position">
-                                            <param id="0" name="List">Farm_Position.CurrListKey</param>
-                                            <param id="1" name="Field">&quot;Plant Duration&quot;</param>
-                                            <param id="2" name="Subtract">1</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                            </sub-events>
-                        </event-block>
-                        <event-block sid="236670030280977">
-                            <conditions>
-                                <condition id="-8" name="Compare two values" sid="214003738024577" type="System">
-                                    <param id="0" name="First value">Farm_Position.LoopIndex</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Second value">Farm_Position.ListCount</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-9" name="Set value" sid="873818571263584" type="System">
-                                    <param id="0" name="Variable">SoilStatus</param>
-                                    <param id="1" name="Value">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="250235871843397">
-                            <conditions>
-                                <condition id="-14" name="Compare variable" sid="152139653237956" type="System">
-                                    <param id="0" name="Variable">SoilStatus</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Value">1</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="0" name="Set item" sid="963390601121952" type="LocalStorage">
-                                    <param id="0" name="Key">&quot;Farm_Position&quot;</param>
-                                    <param id="1" name="Value">Farm_Position.AsJSON</param>
-                                </action>
-                                <action id="-2" name="Go to layout" sid="640298852996668" type="System">
-                                    <param id="0" name="Layout">Home</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
-                </event-block>
-            </sub-events>
         </event-block>
         <event-group description="" sid="449868082673665" title="Inventory">
             <sub-events>
