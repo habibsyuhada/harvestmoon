@@ -33,7 +33,7 @@
                             <actions>
                                 <action id="-3" name="Create object" sid="574383719486449" type="System">
                                     <param id="0" name="Object to create">Soil</param>
-                                    <param id="1" name="Layer">1</param>
+                                    <param id="1" name="Layer">&quot;Object&quot;</param>
                                     <param id="2" name="X">PositionX</param>
                                     <param id="3" name="Y">PositionY</param>
                                 </action>
@@ -152,6 +152,26 @@
                                     </sub-events>
                                 </event-block>
                             </sub-events>
+                        </event-block>
+                        <event-block sid="627780549874862">
+                            <conditions>
+                                <condition id="2" name="Compare Field Value" sid="373515670980403" type="Farm_Position">
+                                    <param id="0" name="If Field">&quot;Object&quot;</param>
+                                    <param id="1" name="Is">0</param>
+                                    <param id="2" name="Value">&quot;Chest&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="387730995284470" type="System">
+                                    <param id="0" name="Object to create">Chest</param>
+                                    <param id="1" name="Layer">&quot;Object&quot;</param>
+                                    <param id="2" name="X">PositionX</param>
+                                    <param id="3" name="Y">PositionY</param>
+                                </action>
+                                <action id="11" name="Load" sid="560474755286844" type="Chest_Array">
+                                    <param id="0" name="JSON">Farm_Position.Get(PositionX&amp;&quot;, &quot;&amp;PositionY, &quot;Object_Array&quot;)</param>
+                                </action>
+                            </actions>
                         </event-block>
                     </sub-events>
                 </event-block>

@@ -16,6 +16,7 @@
         <plugin author="Scirra" id="LocalStorage" version="1">Local storage</plugin>
         <plugin author="Rex.Rainbow" id="Rex_Date" version="1">Date</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
         <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
         <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
         <plugin author="Kevin Khantzis" id="trblsm_table" version="1">Table</plugin>
@@ -23,6 +24,7 @@
     <used-behaviors>
         <behavior author="Scirra" id="DragnDrop" version="1">Drag &amp; Drop</behavior>
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
         <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
@@ -333,12 +335,15 @@
                 </behavior-type>
             </behaviors>
             <container>
-                <type>InventoryItem</type>
                 <type>InventoryBox</type>
+                <type>InventoryItem</type>
+                <type>Inventory_Qty</type>
             </container>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="490619906395128" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Inventory Box.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\Inventory Box.png">
+                        <image-point name="Qty" x="0.666667" y="0.666667" />
+                    </frame>
                 </animation>
             </animation-folder>
         </object-type>
@@ -353,8 +358,9 @@
                 </behavior-type>
             </behaviors>
             <container>
-                <type>InventoryItem</type>
                 <type>InventoryBox</type>
+                <type>InventoryItem</type>
+                <type>Inventory_Qty</type>
             </container>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Blank" pingpong="0" repeatcount="1" repeatto="0" sid="117723144833503" speed="5">
@@ -547,6 +553,20 @@
                     </frame>
                 </animation>
             </animation-folder>
+        </object-type>
+        <object-type name="Inventory_Qty" sid="104490481951101">
+            <plugin id="Spritefont2" />
+            <behaviors>
+                <behavior-type name="Pin" sid="646471402832818">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <container>
+                <type>InventoryBox</type>
+                <type>InventoryItem</type>
+                <type>Inventory_Qty</type>
+            </container>
+            <texture />
         </object-type>
     </object-folder>
     <families>

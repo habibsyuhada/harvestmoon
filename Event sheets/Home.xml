@@ -26,43 +26,23 @@
                     <param id="0" name="Key">&quot;Start_Game_Date&quot;</param>
                     <param id="1" name="Value">Date.UnixTimestamp</param>
                 </action>
-                <action id="3" name="Set at XY" sid="760669922742854" type="Inventory_Array">
-                    <param id="0" name="X">0</param>
-                    <param id="1" name="Y">0</param>
-                    <param id="2" name="Value">&quot;Hoe&quot;</param>
+                <action id="0" name="Set Value" sid="368543804064405" type="Farm_Position">
+                    <param id="0" name="List">&quot;232, 152&quot;</param>
+                    <param id="1" name="Field">&quot;Object&quot;</param>
+                    <param id="2" name="Value">&quot;Chest&quot;</param>
                 </action>
-                <action id="3" name="Set at XY" sid="894095038234449" type="Inventory_Array">
-                    <param id="0" name="X">0</param>
-                    <param id="1" name="Y">1</param>
-                    <param id="2" name="Value">1</param>
-                </action>
-                <action id="3" name="Set at XY" sid="454802472962922" type="Inventory_Array">
-                    <param id="0" name="X">1</param>
-                    <param id="1" name="Y">0</param>
-                    <param id="2" name="Value">&quot;Water_Can&quot;</param>
-                </action>
-                <action id="3" name="Set at XY" sid="466954043305865" type="Inventory_Array">
-                    <param id="0" name="X">1</param>
-                    <param id="1" name="Y">1</param>
-                    <param id="2" name="Value">1</param>
-                </action>
-                <action id="3" name="Set at XY" sid="117552245786084" type="Inventory_Array">
-                    <param id="0" name="X">2</param>
-                    <param id="1" name="Y">0</param>
-                    <param id="2" name="Value">&quot;Parsnip_Seed&quot;</param>
-                </action>
-                <action id="3" name="Set at XY" sid="818201969567104" type="Inventory_Array">
-                    <param id="0" name="X">2</param>
-                    <param id="1" name="Y">1</param>
-                    <param id="2" name="Value">1</param>
-                </action>
-                <action id="0" name="Set item" sid="784546716213403" type="LocalStorage">
-                    <param id="0" name="Key">&quot;Inventory_Position&quot;</param>
-                    <param id="1" name="Value">Inventory_Array.AsJSON</param>
+                <action id="0" name="Set Value" sid="760121112720944" type="Farm_Position">
+                    <param id="0" name="List">&quot;232, 152&quot;</param>
+                    <param id="1" name="Field">&quot;Object_Array&quot;</param>
+                    <param id="2" name="Value">&quot;{&quot;&quot;c2array&quot;&quot;:true,&quot;&quot;size&quot;&quot;:[25,2,1],&quot;&quot;data&quot;&quot;:[[[&quot;&quot;Hoe&quot;&quot;],[-1]],[[&quot;&quot;Water_Can&quot;&quot;],[-1]],[[&quot;&quot;Parsnip_Seed&quot;&quot;],[1]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]]]}&quot;</param>
                 </action>
                 <action id="0" name="Set item" sid="911630592110583" type="LocalStorage">
                     <param id="0" name="Key">&quot;Farm_Position&quot;</param>
                     <param id="1" name="Value">Farm_Position.AsJSON</param>
+                </action>
+                <action id="0" name="Set item" sid="764460521932204" type="LocalStorage">
+                    <param id="0" name="Key">&quot;Inventory_Position&quot;</param>
+                    <param id="1" name="Value">Inventory_Array.AsJSON</param>
                 </action>
                 <action id="0" name="Call function" sid="507503249151447" type="Function">
                     <param id="0" name="Name">&quot;Check_Array_Game&quot;</param>
