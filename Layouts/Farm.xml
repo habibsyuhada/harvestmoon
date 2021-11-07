@@ -330,6 +330,35 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
+                <instance type="ShippingBin" uid="40">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Solid">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>400</x>
+                        <y>120</y>
+                        <z>0</z>
+                        <width>32</width>
+                        <height>32</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
             </instances>
             <effects />
         </layer>
@@ -628,6 +657,20 @@
         <instance type="Master_Item" uid="18">
             <properties>
                 <my-property>77</my-property>
+            </properties>
+        </instance>
+        <instance type="Shipping_Array" uid="41">
+            <properties>
+                <width>25</width>
+                <height>2</height>
+                <depth>1</depth>
+            </properties>
+        </instance>
+        <instance type="Secondary_Inv_Array" uid="42">
+            <properties>
+                <width>25</width>
+                <height>2</height>
+                <depth>1</depth>
             </properties>
         </instance>
     </nonworld-instances>

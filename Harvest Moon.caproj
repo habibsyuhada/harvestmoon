@@ -372,6 +372,21 @@
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
+                <animation framecount="2" loop="0" name="Crop" pingpong="0" repeatcount="1" repeatto="0" sid="400142740612868" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\project\Assets\Crops\Parsnip.png">
+                        <collision-poly>
+                            <point x="0.25" y="0.25" />
+                            <point x="0.5" y="0" />
+                            <point x="0.75" y="0.25" />
+                            <point x="0.875" y="0.5" />
+                            <point x="0.75" y="0.75" />
+                            <point x="0.5" y="1" />
+                            <point x="0.25" y="0.75" />
+                            <point x="0.125" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
             </animation-folder>
         </object-type>
         <object-type name="Chest" sid="452085099374904">
@@ -567,6 +582,43 @@
                 <type>Inventory_Qty</type>
             </container>
             <texture />
+        </object-type>
+        <object-type name="ShippingBin" sid="237794016609256">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="188654015061453">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <container>
+                <type>Shipping_Array</type>
+                <type>ShippingBin</type>
+            </container>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="548541480728388" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\project\Assets\Item\Shipping_Bin.png">
+                        <collision-poly>
+                            <point x="0.15625" y="0.15625" />
+                            <point x="0.84375" y="0.15625" />
+                            <point x="1" y="0.5" />
+                            <point x="0.96875" y="0.96875" />
+                            <point x="0.5" y="1" />
+                            <point x="0.03125" y="0.96875" />
+                            <point x="0.0625" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type global="1" name="Shipping_Array" sid="809101001874811">
+            <plugin id="Arr" />
+            <container>
+                <type>Shipping_Array</type>
+                <type>ShippingBin</type>
+            </container>
+        </object-type>
+        <object-type global="1" name="Secondary_Inv_Array" sid="752054862736650">
+            <plugin id="Arr" />
         </object-type>
     </object-folder>
     <families>

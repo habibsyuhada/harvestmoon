@@ -85,10 +85,11 @@
                         <condition id="1" name="Is overlapping another object" sid="228501875255306" type="ActionIndicator">
                             <param id="0" name="Object">SoilArea</param>
                         </condition>
-                        <condition id="-14" name="Compare variable" sid="189906877976428" type="System">
-                            <param id="0" name="Variable">Tool</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;Hoe&quot;</param>
+                        <condition id="1" name="Compare at XY" sid="477314460493184" type="Inventory_Array">
+                            <param id="0" name="X">Active_Inv_ID</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Comparison">0</param>
+                            <param id="3" name="Value">&quot;Hoe&quot;</param>
                         </condition>
                     </conditions>
                     <actions />
@@ -128,10 +129,11 @@
                         <condition id="1" name="Is overlapping another object" sid="938844156450327" type="ActionIndicator">
                             <param id="0" name="Object">Soil</param>
                         </condition>
-                        <condition id="-14" name="Compare variable" sid="349368588321775" type="System">
-                            <param id="0" name="Variable">Tool</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;Water_Can&quot;</param>
+                        <condition id="1" name="Compare at XY" sid="158835060644713" type="Inventory_Array">
+                            <param id="0" name="X">Active_Inv_ID</param>
+                            <param id="1" name="Y">0</param>
+                            <param id="2" name="Comparison">0</param>
+                            <param id="3" name="Value">&quot;Water_Can&quot;</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -150,10 +152,11 @@
                         <condition id="1" name="Is overlapping another object" sid="703633741343582" type="ActionIndicator">
                             <param id="0" name="Object">Soil</param>
                         </condition>
-                        <condition id="-8" name="Compare two values" sid="578275090262391" type="System">
-                            <param id="0" name="First value">find(Tool, &quot;Seed&quot;)</param>
-                            <param id="1" name="Comparison">1</param>
-                            <param id="2" name="Second value">-1</param>
+                        <condition id="7" name="Compare Value" sid="868427404434672" type="Master_Item">
+                            <param id="0" name="In List">Inventory_Array.At(Active_Inv_ID, 0)</param>
+                            <param id="1" name="In Field">&quot;category&quot;</param>
+                            <param id="2" name="Comparison">0</param>
+                            <param id="3" name="Value">&quot;Seed&quot;</param>
                         </condition>
                     </conditions>
                     <actions />
@@ -165,6 +168,12 @@
                                     <param id="1" name="In Field">&quot;Plant&quot;</param>
                                     <param id="2" name="Comparison">0</param>
                                     <param id="3" name="Value">&quot;&quot;</param>
+                                </condition>
+                                <condition id="1" name="Compare at XY" sid="531927797711944" type="Inventory_Array">
+                                    <param id="0" name="X">Active_Inv_ID</param>
+                                    <param id="1" name="Y">1</param>
+                                    <param id="2" name="Comparison">4</param>
+                                    <param id="3" name="Value">0</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -184,9 +193,56 @@
                                     <param id="1" name="Field">&quot;Plant Duration&quot;</param>
                                     <param id="2" name="Value">Plant.duration_total</param>
                                 </action>
+                                <action id="3" name="Set at XY" sid="416983213054567" type="Inventory_Array">
+                                    <param id="0" name="X">Active_Inv_ID</param>
+                                    <param id="1" name="Y">1</param>
+                                    <param id="2" name="Value">Inventory_Array.At(Active_Inv_ID, 1) - 1</param>
+                                </action>
+                                <action id="0" name="Call function" sid="593038918392979" type="Function">
+                                    <param id="0" name="Name">&quot;check_inv_zero_qty&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
                             </actions>
                         </event-block>
                     </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="414166454068894">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="238426023656981" type="Keyboard">
+                    <param id="0" name="Key">69</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="888120406910081">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="733863689564256" type="ActionIndicator">
+                            <param id="0" name="Object">Plant</param>
+                        </condition>
+                        <condition id="7" name="Compare Value" sid="534344690975723" type="Farm_Position">
+                            <param id="0" name="In List">ActionIndicator.X&amp;&quot;, &quot;&amp;ActionIndicator.Y</param>
+                            <param id="1" name="In Field">&quot;Plant Duration&quot;</param>
+                            <param id="2" name="Comparison">0</param>
+                            <param id="3" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="612737168694945" type="Plant" />
+                        <action id="0" name="Call function" sid="157454663837017" type="Function">
+                            <param id="0" name="Name">&quot;add_new_item&quot;</param>
+                            <param id="1" name="Parameter {n}">Farm_Position.Get(ActionIndicator.X&amp;&quot;, &quot;&amp;ActionIndicator.Y, &quot;Plant&quot;){###}(floor(random(100)) &lt; 10 ? 3 : (floor(random(100)) &lt; 40 ? 2 : 1)){###}&quot;exist&quot;</param>
+                        </action>
+                        <action id="3" name="Delete Field" sid="300201262455654" type="Farm_Position">
+                            <param id="0" name="List">ActionIndicator.X&amp;&quot;, &quot;&amp;ActionIndicator.Y</param>
+                            <param id="1" name="Field">&quot;Plant&quot;</param>
+                        </action>
+                        <action id="3" name="Delete Field" sid="784788539506315" type="Farm_Position">
+                            <param id="0" name="List">ActionIndicator.X&amp;&quot;, &quot;&amp;ActionIndicator.Y</param>
+                            <param id="1" name="Field">&quot;Plant Duration&quot;</param>
+                        </action>
+                    </actions>
                 </event-block>
                 <event-block sid="432948444069708">
                     <conditions>
@@ -214,6 +270,10 @@
                                 <action id="-9" name="Set value" sid="711993383750400" type="System">
                                     <param id="0" name="Variable">IsChestOpen</param>
                                     <param id="1" name="Value">Chest.UID</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="662345563029288" type="System">
+                                    <param id="0" name="Variable">WhatChestOpen</param>
+                                    <param id="1" name="Value">&quot;Chest&quot;</param>
                                 </action>
                             </actions>
                             <sub-events>
@@ -269,12 +329,12 @@
                 </event-block>
             </sub-events>
         </event-block>
-        <event-block sid="414166454068894">
+        <event-block sid="681782270363521">
             <conditions>
-                <condition id="-18" name="On created" sid="755727283194571" type="Plant" />
+                <condition id="-18" name="On created" sid="266119038626266" type="Plant" />
             </conditions>
             <actions>
-                <action id="5" name="Set frame" sid="281192870728379" type="Plant">
+                <action id="5" name="Set frame" sid="328450812231627" type="Plant">
                     <param id="0" name="Frame number">floor(random(2))</param>
                 </action>
             </actions>
@@ -429,6 +489,210 @@
                             <param id="0" name="Layout">Teleportation_Point.Scene_name</param>
                         </action>
                     </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="781453751382558">
+            <conditions>
+                <condition id="0" name="On function" sid="813146540372111" type="Function">
+                    <param id="0" name="Name">&quot;check_inv_zero_qty&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="672538284298413">
+                    <conditions>
+                        <condition id="3" name="For each element" sid="428150553114955" type="Inventory_Array">
+                            <param id="0" name="Axes">2</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="642895613463323">
+                            <conditions>
+                                <condition id="1" name="Compare at XY" sid="968347121079388" type="Inventory_Array">
+                                    <param id="0" name="X">Inventory_Array.CurX</param>
+                                    <param id="1" name="Y">1</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Set at XY" sid="761265070314958" type="Inventory_Array">
+                                    <param id="0" name="X">Inventory_Array.CurX</param>
+                                    <param id="1" name="Y">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="309581256125908">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="171587274357446" type="System">
+                                    <param id="0" name="First value">Inventory_Array.CurX</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">Inventory_Array.Width-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="356069301288642" type="Function">
+                                    <param id="0" name="Name">&quot;check_inv_active&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="358875885861271">
+            <conditions>
+                <condition id="0" name="On function" sid="133395635590611" type="Function">
+                    <param id="0" name="Name">&quot;check_inv_active&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="278678848705352">
+                    <conditions>
+                        <condition id="1" name="Compare at XY" sid="793716709668179" type="Inventory_Array">
+                            <param id="0" name="X">Active_Inv_ID</param>
+                            <param id="1" name="Y">1</param>
+                            <param id="2" name="Comparison">0</param>
+                            <param id="3" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="127006631796316" type="ToolIndicator">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="108831930622029">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="180399511429621" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="355778833292559" type="ToolIndicator">
+                            <param id="0" name="Animation">Master_Item.Get(Inventory_Array.At(Active_Inv_ID, 0), &quot;animation_name&quot;)</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="850139445383187" type="ToolIndicator">
+                            <param id="0" name="Frame number">Master_Item.Get(Inventory_Array.At(Active_Inv_ID, 0), &quot;frame_no&quot;)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="216170259643261">
+            <conditions>
+                <condition id="0" name="On function" sid="388092611572827" type="Function">
+                    <param id="0" name="Name">&quot;add_new_item&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="index_kosong" sid="904591275550441" static="0" type="number">-1</variable>
+                <event-block sid="926721377312885">
+                    <conditions>
+                        <condition id="3" name="For each element" sid="574493757800101" type="Inventory_Array">
+                            <param id="0" name="Axes">2</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="556837209502212">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="426167144360810" type="System">
+                                    <param id="0" name="Variable">index_kosong</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">-1</param>
+                                </condition>
+                                <condition id="1" name="Compare parameter" sid="669608524861836" type="Function">
+                                    <param id="0" name="Index">2</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;exist&quot;</param>
+                                </condition>
+                                <condition id="1" name="Compare at XY" sid="156851052149662" type="Inventory_Array">
+                                    <param id="0" name="X">Inventory_Array.CurX</param>
+                                    <param id="1" name="Y">0</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Value">Function.Param(0)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="383946910340375" type="System">
+                                    <param id="0" name="Variable">index_kosong</param>
+                                    <param id="1" name="Value">Inventory_Array.CurX</param>
+                                </action>
+                                <action id="3" name="Set at XY" sid="243569207206973" type="Inventory_Array">
+                                    <param id="0" name="X">index_kosong</param>
+                                    <param id="1" name="Y">1</param>
+                                    <param id="2" name="Value">Inventory_Array.At(index_kosong, 1) + Function.Param(1)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="813645360389934">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="465137975104029" type="System">
+                                    <param id="0" name="Variable">index_kosong</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">-1</param>
+                                </condition>
+                                <condition id="1" name="Compare parameter" sid="996088611470196" type="Function">
+                                    <param id="0" name="Index">2</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;new&quot;</param>
+                                </condition>
+                                <condition id="1" name="Compare at XY" sid="671885517869276" type="Inventory_Array">
+                                    <param id="0" name="X">Inventory_Array.CurX</param>
+                                    <param id="1" name="Y">0</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="462346761354600" type="System">
+                                    <param id="0" name="Variable">index_kosong</param>
+                                    <param id="1" name="Value">Inventory_Array.CurX</param>
+                                </action>
+                                <action id="3" name="Set at XY" sid="628363545195195" type="Inventory_Array">
+                                    <param id="0" name="X">index_kosong</param>
+                                    <param id="1" name="Y">0</param>
+                                    <param id="2" name="Value">Function.Param(0)</param>
+                                </action>
+                                <action id="3" name="Set at XY" sid="854716625965722" type="Inventory_Array">
+                                    <param id="0" name="X">index_kosong</param>
+                                    <param id="1" name="Y">1</param>
+                                    <param id="2" name="Value">Function.Param(1)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="604316406716202">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="793198490960533" type="System">
+                                    <param id="0" name="First value">Inventory_Array.CurX</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">Inventory_Array.Width-1</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="380975998614501" type="System">
+                                    <param id="0" name="Variable">index_kosong</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">-1</param>
+                                </condition>
+                                <condition id="1" name="Compare parameter" sid="568525860036597" type="Function">
+                                    <param id="0" name="Index">2</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;exist&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="531211331642965" type="Function">
+                                    <param id="0" name="Name">&quot;add_new_item&quot;</param>
+                                    <param id="1" name="Parameter {n}">Function.Param(0){###}Function.Param(1){###}&quot;new&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-block>

@@ -104,6 +104,10 @@
                                     <param id="0" name="Variable">IsChestOpen</param>
                                     <param id="1" name="Value">-1</param>
                                 </action>
+                                <action id="-9" name="Set value" sid="955458937618434" type="System">
+                                    <param id="0" name="Variable">WhatChestOpen</param>
+                                    <param id="1" name="Value">&quot;&quot;</param>
+                                </action>
                             </actions>
                         </event-block>
                     </sub-events>

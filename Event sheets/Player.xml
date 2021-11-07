@@ -9,12 +9,13 @@
         <variable constant="0" name="IsMenuOpen" sid="821075321530977" static="0" type="number">0</variable>
         <variable constant="0" name="IsMenuTab" sid="488181387177148" static="0" type="number">1</variable>
         <variable constant="0" name="IsChestOpen" sid="343258540128375" static="0" type="number">-1</variable>
+        <variable constant="0" name="WhatChestOpen" sid="897152038695016" static="0" type="text"></variable>
         <variable constant="0" name="Pixel" sid="972126930540946" static="0" type="number">16</variable>
         <variable constant="0" name="Pixel_mid" sid="424082118313624" static="0" type="number">8</variable>
         <variable constant="0" name="DEBUG" sid="468946106447280" static="0" type="text"></variable>
         <variable constant="0" name="PositionY" sid="272313996179559" static="0" type="number">0</variable>
         <variable constant="0" name="PositionX" sid="327327837914552" static="0" type="number">0</variable>
-        <variable constant="0" name="Tool" sid="249218643261468" static="0" type="text"></variable>
+        <variable constant="0" name="Active_Inv_ID" sid="947917789265441" static="0" type="number">-1</variable>
         <event-group description="" sid="853785160422881" title="Player Movement">
             <sub-events>
                 <event-block sid="958064081151346">
@@ -100,8 +101,8 @@
                             </conditions>
                             <actions>
                                 <action id="-3" name="Set position" sid="865381137150515" type="ActionIndicator">
-                                    <param id="0" name="X">(Player.X - (Player.X%16))-8</param>
-                                    <param id="1" name="Y">(Player.Y - (Player.Y%16))+8</param>
+                                    <param id="0" name="X">(Player.X - (Player.X%Pixel))-Pixel_mid</param>
+                                    <param id="1" name="Y">(Player.Y - (Player.Y%Pixel))+Pixel_mid</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -113,8 +114,8 @@
                             </conditions>
                             <actions>
                                 <action id="-3" name="Set position" sid="614649097234011" type="ActionIndicator">
-                                    <param id="0" name="X">(Player.X - (Player.X%16))+16+8</param>
-                                    <param id="1" name="Y">(Player.Y - (Player.Y%16))+8</param>
+                                    <param id="0" name="X">(Player.X - (Player.X%Pixel))+Pixel+Pixel_mid</param>
+                                    <param id="1" name="Y">(Player.Y - (Player.Y%Pixel))+Pixel_mid</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -126,8 +127,8 @@
                             </conditions>
                             <actions>
                                 <action id="-3" name="Set position" sid="834396244358263" type="ActionIndicator">
-                                    <param id="0" name="X">(Player.X - (Player.X%16))+8</param>
-                                    <param id="1" name="Y">(Player.Y - (Player.Y%16))-8</param>
+                                    <param id="0" name="X">(Player.X - (Player.X%Pixel))+Pixel_mid</param>
+                                    <param id="1" name="Y">(Player.Y - (Player.Y%Pixel))-Pixel_mid</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -139,8 +140,8 @@
                             </conditions>
                             <actions>
                                 <action id="-3" name="Set position" sid="188400256996919" type="ActionIndicator">
-                                    <param id="0" name="X">(Player.X - (Player.X%16))+8</param>
-                                    <param id="1" name="Y">(Player.Y - (Player.Y%16))+16+8</param>
+                                    <param id="0" name="X">(Player.X - (Player.X%Pixel))+Pixel_mid</param>
+                                    <param id="1" name="Y">(Player.Y - (Player.Y%Pixel))+Pixel+Pixel_mid</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -172,8 +173,8 @@
                             </conditions>
                             <actions>
                                 <action id="-3" name="Set position" sid="233164441483225" type="ActionIndicator">
-                                    <param id="0" name="X">(Player.X - (Player.X%16))-8</param>
-                                    <param id="1" name="Y">(Player.Y - (Player.Y%16))+8</param>
+                                    <param id="0" name="X">(Player.X - (Player.X%Pixel))-Pixel_mid</param>
+                                    <param id="1" name="Y">(Player.Y - (Player.Y%Pixel))+Pixel_mid</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -192,8 +193,8 @@
                             </conditions>
                             <actions>
                                 <action id="-3" name="Set position" sid="797948924644042" type="ActionIndicator">
-                                    <param id="0" name="X">(Player.X - (Player.X%16))+16+8</param>
-                                    <param id="1" name="Y">(Player.Y - (Player.Y%16))+8</param>
+                                    <param id="0" name="X">(Player.X - (Player.X%Pixel))+Pixel+Pixel_mid</param>
+                                    <param id="1" name="Y">(Player.Y - (Player.Y%Pixel))+Pixel_mid</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -207,8 +208,8 @@
                             </conditions>
                             <actions>
                                 <action id="-3" name="Set position" sid="885422064860455" type="ActionIndicator">
-                                    <param id="0" name="X">(Player.X - (Player.X%16))+8</param>
-                                    <param id="1" name="Y">(Player.Y - (Player.Y%16))-8</param>
+                                    <param id="0" name="X">(Player.X - (Player.X%Pixel))+Pixel_mid</param>
+                                    <param id="1" name="Y">(Player.Y - (Player.Y%Pixel))-Pixel_mid</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -222,8 +223,8 @@
                             </conditions>
                             <actions>
                                 <action id="-3" name="Set position" sid="182109895648730" type="ActionIndicator">
-                                    <param id="0" name="X">(Player.X - (Player.X%16))+8</param>
-                                    <param id="1" name="Y">(Player.Y - (Player.Y%16))+16+8</param>
+                                    <param id="0" name="X">(Player.X - (Player.X%Pixel))+Pixel_mid</param>
+                                    <param id="1" name="Y">(Player.Y - (Player.Y%Pixel))+Pixel+Pixel_mid</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -231,146 +232,136 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-block sid="601924786315695">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="761290038295993" type="Keyboard">
-                    <param id="0" name="Key">192</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Set value" sid="679259934744666" type="System">
-                    <param id="0" name="Variable">Tool</param>
-                    <param id="1" name="Value">&quot;&quot;</param>
-                </action>
-                <action id="5" name="Set frame" sid="810237829968911" type="ToolIndicator">
-                    <param id="0" name="Frame number">0</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="469724892571550">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="308127763099624" type="Keyboard">
-                    <param id="0" name="Key">49</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Set value" sid="331863685146885" type="System">
-                    <param id="0" name="Variable">Tool</param>
-                    <param id="1" name="Value">Inventory_Array.At(0, 0)</param>
-                </action>
-                <action id="4" name="Set animation" sid="579786899651894" type="ToolIndicator">
-                    <param id="0" name="Animation">Master_Item.Get(Tool, &quot;animation_name&quot;)</param>
-                    <param id="1" name="From">1</param>
-                </action>
-                <action id="5" name="Set frame" sid="386971573383942" type="ToolIndicator">
-                    <param id="0" name="Frame number">Master_Item.Get(Tool, &quot;frame_no&quot;)</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="424701967594600">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="530592539068478" type="Keyboard">
-                    <param id="0" name="Key">50</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Set value" sid="472208567182271" type="System">
-                    <param id="0" name="Variable">Tool</param>
-                    <param id="1" name="Value">Inventory_Array.At(1, 0)</param>
-                </action>
-                <action id="4" name="Set animation" sid="601960386948216" type="ToolIndicator">
-                    <param id="0" name="Animation">Master_Item.Get(Tool, &quot;animation_name&quot;)</param>
-                    <param id="1" name="From">1</param>
-                </action>
-                <action id="5" name="Set frame" sid="309812370666774" type="ToolIndicator">
-                    <param id="0" name="Frame number">Master_Item.Get(Tool, &quot;frame_no&quot;)</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="730347320438259">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="225925125777126" type="Keyboard">
-                    <param id="0" name="Key">51</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Set value" sid="289634524107935" type="System">
-                    <param id="0" name="Variable">Tool</param>
-                    <param id="1" name="Value">Inventory_Array.At(2, 0)</param>
-                </action>
-                <action id="4" name="Set animation" sid="419143236044244" type="ToolIndicator">
-                    <param id="0" name="Animation">Master_Item.Get(Tool, &quot;animation_name&quot;)</param>
-                    <param id="1" name="From">1</param>
-                </action>
-                <action id="5" name="Set frame" sid="312980207317075" type="ToolIndicator">
-                    <param id="0" name="Frame number">Master_Item.Get(Tool, &quot;frame_no&quot;)</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="357440738287470">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="709401157851015" type="Keyboard">
-                    <param id="0" name="Key">52</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Set value" sid="903396672752281" type="System">
-                    <param id="0" name="Variable">Tool</param>
-                    <param id="1" name="Value">Inventory_Array.At(3, 0)</param>
-                </action>
-                <action id="4" name="Set animation" sid="748175419669068" type="ToolIndicator">
-                    <param id="0" name="Animation">Master_Item.Get(Tool, &quot;animation_name&quot;)</param>
-                    <param id="1" name="From">1</param>
-                </action>
-                <action id="5" name="Set frame" sid="238741638509782" type="ToolIndicator">
-                    <param id="0" name="Frame number">Master_Item.Get(Tool, &quot;frame_no&quot;)</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="836121224719150">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="553627841761365" type="Keyboard">
-                    <param id="0" name="Key">53</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Set value" sid="891108653656135" type="System">
-                    <param id="0" name="Variable">Tool</param>
-                    <param id="1" name="Value">Inventory_Array.At(4, 0)</param>
-                </action>
-                <action id="4" name="Set animation" sid="379157318241524" type="ToolIndicator">
-                    <param id="0" name="Animation">Master_Item.Get(Tool, &quot;animation_name&quot;)</param>
-                    <param id="1" name="From">1</param>
-                </action>
-                <action id="5" name="Set frame" sid="587556381877384" type="ToolIndicator">
-                    <param id="0" name="Frame number">Master_Item.Get(Tool, &quot;frame_no&quot;)</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="102448407987762">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="132871231035974" type="Keyboard">
-                    <param id="0" name="Key">219</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-2" name="Go to layout" sid="516332551756324" type="System">
-                    <param id="0" name="Layout">Home</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="324094662428979">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="350135348732947" type="Keyboard">
-                    <param id="0" name="Key">221</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-2" name="Go to layout" sid="169375526581648" type="System">
-                    <param id="0" name="Layout">Farm</param>
-                </action>
-            </actions>
-        </event-block>
+        <event-group description="" sid="874687375363989" title="TESTING CONTROL">
+            <sub-events>
+                <event-block sid="601924786315695">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="761290038295993" type="Keyboard">
+                            <param id="0" name="Key">192</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="241697951638829" type="System">
+                            <param id="0" name="Variable">Active_Inv_ID</param>
+                            <param id="1" name="Value">-1</param>
+                        </action>
+                        <action id="0" name="Call function" sid="685022802593148" type="Function">
+                            <param id="0" name="Name">&quot;check_inv_active&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="469724892571550">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="308127763099624" type="Keyboard">
+                            <param id="0" name="Key">49</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="656625680041669" type="System">
+                            <param id="0" name="Variable">Active_Inv_ID</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="413127093103122" type="Function">
+                            <param id="0" name="Name">&quot;check_inv_active&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="424701967594600">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="530592539068478" type="Keyboard">
+                            <param id="0" name="Key">50</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="443784087309782" type="System">
+                            <param id="0" name="Variable">Active_Inv_ID</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Call function" sid="342454806149407" type="Function">
+                            <param id="0" name="Name">&quot;check_inv_active&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="730347320438259">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="225925125777126" type="Keyboard">
+                            <param id="0" name="Key">51</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="369807226019469" type="System">
+                            <param id="0" name="Variable">Active_Inv_ID</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                        <action id="0" name="Call function" sid="267937875771415" type="Function">
+                            <param id="0" name="Name">&quot;check_inv_active&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="357440738287470">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="709401157851015" type="Keyboard">
+                            <param id="0" name="Key">52</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="169009934223414" type="System">
+                            <param id="0" name="Variable">Active_Inv_ID</param>
+                            <param id="1" name="Value">3</param>
+                        </action>
+                        <action id="0" name="Call function" sid="244436231908607" type="Function">
+                            <param id="0" name="Name">&quot;check_inv_active&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="836121224719150">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="553627841761365" type="Keyboard">
+                            <param id="0" name="Key">53</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="546681928711177" type="System">
+                            <param id="0" name="Variable">Active_Inv_ID</param>
+                            <param id="1" name="Value">4</param>
+                        </action>
+                        <action id="0" name="Call function" sid="429107071007434" type="Function">
+                            <param id="0" name="Name">&quot;check_inv_active&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="102448407987762">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="132871231035974" type="Keyboard">
+                            <param id="0" name="Key">219</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="516332551756324" type="System">
+                            <param id="0" name="Layout">Home</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="324094662428979">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="350135348732947" type="Keyboard">
+                            <param id="0" name="Key">221</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="169375526581648" type="System">
+                            <param id="0" name="Layout">Farm</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
         <event-group description="" sid="449868082673665" title="Inventory">
             <sub-events>
                 <event-block sid="256935563099392">
@@ -608,6 +599,12 @@
                                                 <action id="0" name="Set text" sid="582794971109282" type="Inventory_Qty">
                                                     <param id="0" name="Text">Inventory_Array.At(Index_Array_inv, 1) &lt; 1 ? &quot;&quot; : Inventory_Array.At(Index_Array_inv, 1)</param>
                                                 </action>
+                                                <action behavior="Pin" id="0" name="Pin to object" sid="383397413951391" type="Inventory_Qty">
+                                                    <param id="0" name="Pin to">InventoryItem</param>
+                                                    <param id="1" name="Mode">0</param>
+                                                </action>
+                                                <action id="-24" name="Move to top" sid="773731439087659" type="InventoryItem" />
+                                                <action id="-24" name="Move to top" sid="592379374265145" type="Inventory_Qty" />
                                                 <action id="-10" name="Add to" sid="916358469783943" type="System">
                                                     <param id="0" name="Variable">Index_Array_inv</param>
                                                     <param id="1" name="Value">1</param>
@@ -774,6 +771,8 @@
                                                     <param id="0" name="Pin to">InventoryItem</param>
                                                     <param id="1" name="Mode">0</param>
                                                 </action>
+                                                <action id="-24" name="Move to top" sid="880881684887591" type="InventoryItem" />
+                                                <action id="-24" name="Move to top" sid="185097931359899" type="Inventory_Qty" />
                                                 <action id="-10" name="Add to" sid="820219927293868" type="System">
                                                     <param id="0" name="Variable">Index_Array_inv</param>
                                                     <param id="1" name="Value">1</param>
@@ -853,15 +852,10 @@
                                 <condition id="-8" name="Compare two values" sid="873947052175916" type="System">
                                     <param id="0" name="First value">distance(InventoryItem.X, InventoryItem.Y, InventoryBoxs.X, InventoryBoxs.Y)</param>
                                     <param id="1" name="Comparison">2</param>
-                                    <param id="2" name="Second value">7</param>
+                                    <param id="2" name="Second value">12</param>
                                 </condition>
                             </conditions>
-                            <actions>
-                                <action id="-9" name="Set value" sid="983651202137238" type="System">
-                                    <param id="0" name="Variable">DEBUG</param>
-                                    <param id="1" name="Value">distance(InventoryItem.X, InventoryItem.Y, InventoryBoxs.X, InventoryBoxs.Y)</param>
-                                </action>
-                            </actions>
+                            <actions />
                             <sub-events>
                                 <event-block sid="834682684885268">
                                     <conditions>

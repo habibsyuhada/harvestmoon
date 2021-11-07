@@ -65,7 +65,7 @@
                                     <actions>
                                         <action id="-3" name="Create object" sid="386804554774587" type="System">
                                             <param id="0" name="Object to create">Plant</param>
-                                            <param id="1" name="Layer">1</param>
+                                            <param id="1" name="Layer">&quot;Object&quot;</param>
                                             <param id="2" name="X">PositionX</param>
                                             <param id="3" name="Y">PositionY</param>
                                         </action>
