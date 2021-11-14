@@ -168,8 +168,39 @@
                                     <param id="2" name="X">PositionX</param>
                                     <param id="3" name="Y">PositionY</param>
                                 </action>
-                                <action id="11" name="Load" sid="560474755286844" type="Chest_Array">
-                                    <param id="0" name="JSON">Farm_Position.Get(PositionX&amp;&quot;, &quot;&amp;PositionY, &quot;Object_Array&quot;)</param>
+                            </actions>
+                        </event-block>
+                        <event-block sid="654421219576055">
+                            <conditions>
+                                <condition id="2" name="Compare Field Value" sid="721909843170358" type="Farm_Position">
+                                    <param id="0" name="If Field">&quot;Object&quot;</param>
+                                    <param id="1" name="Is">0</param>
+                                    <param id="2" name="Value">&quot;Shipping Bin&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="565413717835545" type="System">
+                                    <param id="0" name="Object to create">ShippingBin</param>
+                                    <param id="1" name="Layer">&quot;Object&quot;</param>
+                                    <param id="2" name="X">PositionX</param>
+                                    <param id="3" name="Y">PositionY</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="751673815115268">
+                            <conditions>
+                                <condition id="2" name="Compare Field Value" sid="545544451816885" type="Farm_Position">
+                                    <param id="0" name="If Field">&quot;Object&quot;</param>
+                                    <param id="1" name="Is">0</param>
+                                    <param id="2" name="Value">&quot;Store&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="990359475706686" type="System">
+                                    <param id="0" name="Object to create">Store</param>
+                                    <param id="1" name="Layer">&quot;Object&quot;</param>
+                                    <param id="2" name="X">PositionX</param>
+                                    <param id="3" name="Y">PositionY</param>
                                 </action>
                             </actions>
                         </event-block>

@@ -82,31 +82,32 @@
                             <param id="0" name="Variable">IsMenuOpen</param>
                             <param id="1" name="Value">0</param>
                         </action>
+                        <action id="-9" name="Set value" sid="364228749964775" type="System">
+                            <param id="0" name="Variable">IsChestOpen</param>
+                            <param id="1" name="Value">-1</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="351532157819824" type="Secondary_Inv_Array">
+                            <param id="0" name="Instance variable">IsSetup</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="0" name="Clear" sid="894462464694191" type="Secondary_Inv_Array" />
                     </actions>
                     <sub-events>
                         <event-block sid="927769276206235">
                             <conditions>
-                                <condition id="-14" name="Compare variable" sid="821864173423008" type="System">
-                                    <param id="0" name="Variable">IsChestOpen</param>
-                                    <param id="1" name="Comparison">1</param>
-                                    <param id="2" name="Value">-1</param>
+                                <condition id="-1" name="Compare X" sid="786289715735116" type="Chest">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="X co-ordinate">ChestX</param>
                                 </condition>
-                                <condition id="-14" name="Pick by unique ID" sid="786289715735116" type="Chest">
-                                    <param id="0" name="Unique ID">IsChestOpen</param>
+                                <condition id="-2" name="Compare Y" sid="607588322773289" type="Chest">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Y co-ordinate">ChestY</param>
                                 </condition>
                             </conditions>
                             <actions>
                                 <action id="4" name="Set animation" sid="731502751860761" type="Chest">
                                     <param id="0" name="Animation">&quot;Close&quot;</param>
                                     <param id="1" name="From">1</param>
-                                </action>
-                                <action id="-9" name="Set value" sid="364228749964775" type="System">
-                                    <param id="0" name="Variable">IsChestOpen</param>
-                                    <param id="1" name="Value">-1</param>
-                                </action>
-                                <action id="-9" name="Set value" sid="955458937618434" type="System">
-                                    <param id="0" name="Variable">WhatChestOpen</param>
-                                    <param id="1" name="Value">&quot;&quot;</param>
                                 </action>
                             </actions>
                         </event-block>

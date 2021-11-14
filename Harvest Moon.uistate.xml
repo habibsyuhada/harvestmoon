@@ -11,13 +11,13 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </configurations>
     <open-tabs>
         <layout order="0">Home</layout>
-        <layout order="1">Farm</layout>
+        <layout active="1" order="1">Farm</layout>
         <event-sheet order="2">Farm</event-sheet>
         <event-sheet order="3">Home</event-sheet>
         <event-sheet order="4">Player</event-sheet>
         <event-sheet order="5">Master</event-sheet>
         <event-sheet order="6">Button</event-sheet>
-        <event-sheet active="1" order="7">Control</event-sheet>
+        <event-sheet order="7">Control</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -30,12 +30,13 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </families-expanded>
     <folders-expanded>
         <folder expanded="1" path="object-folder/" />
-        <folder expanded="1" path="layout-folder/" />
-        <folder expanded="1" path="event-folder/" />
-        <folder expanded="0" path="file-folder/" />
+        <folder expanded="0" path="layout-folder/" />
+        <folder expanded="0" path="event-folder/" />
+        <folder expanded="1" path="file-folder/" />
         <folder expanded="1" path="sound-folder/" />
         <folder expanded="1" path="music-folder/" />
         <folder expanded="0" path="file-folder/Icons/" />
+        <folder expanded="1" path="file-folder/Data/" />
         <folder expanded="1" path="animation-folder/Player/" />
         <folder expanded="1" path="animation-folder/Soil/" />
         <folder expanded="1" path="animation-folder/ActionIndicator/" />
@@ -52,5 +53,6 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/C_Sleep/" />
         <folder expanded="1" path="animation-folder/Home/" />
         <folder expanded="1" path="animation-folder/ShippingBin/" />
+        <folder expanded="1" path="animation-folder/Store/" />
     </folders-expanded>
 </c2uistate>

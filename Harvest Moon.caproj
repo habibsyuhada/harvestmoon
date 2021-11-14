@@ -10,13 +10,14 @@
     <unique-id>2m2oqhlgof90t</unique-id>
     <saved-with-version>27700</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="AJAX" version="1">AJAX</plugin>
         <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="LocalStorage" version="1">Local storage</plugin>
         <plugin author="Rex.Rainbow" id="Rex_Date" version="1">Date</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
-        <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
+        <plugin author="Chris Kent" id="SpriteFontPlus" version="1">SpriteFont+</plugin>
         <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
         <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
         <plugin author="Kevin Khantzis" id="trblsm_table" version="1">Table</plugin>
@@ -326,9 +327,6 @@
         </object-type>
         <object-type name="InventoryBox" sid="850133196260348">
             <plugin id="Sprite" />
-            <instance-variables>
-                <instance-variable name="Index_Array_old" sid="284025685226310" type="number" />
-            </instance-variables>
             <behaviors>
                 <behavior-type name="DestroyOutsideLayout" sid="477729920588458">
                     <behavior id="destroy" />
@@ -337,7 +335,7 @@
             <container>
                 <type>InventoryBox</type>
                 <type>InventoryItem</type>
-                <type>Inventory_Qty</type>
+                <type>INV_QTY</type>
             </container>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="490619906395128" speed="5">
@@ -360,7 +358,7 @@
             <container>
                 <type>InventoryBox</type>
                 <type>InventoryItem</type>
-                <type>Inventory_Qty</type>
+                <type>INV_QTY</type>
             </container>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Blank" pingpong="0" repeatcount="1" repeatto="0" sid="117723144833503" speed="5">
@@ -569,25 +567,14 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Inventory_Qty" sid="104490481951101">
-            <plugin id="Spritefont2" />
-            <behaviors>
-                <behavior-type name="Pin" sid="646471402832818">
-                    <behavior id="Pin" />
-                </behavior-type>
-            </behaviors>
-            <container>
-                <type>InventoryBox</type>
-                <type>InventoryItem</type>
-                <type>Inventory_Qty</type>
-            </container>
-            <texture />
-        </object-type>
         <object-type name="ShippingBin" sid="237794016609256">
             <plugin id="Sprite" />
             <behaviors>
                 <behavior-type name="Solid" sid="188654015061453">
                     <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="995983567205517">
+                    <behavior id="destroy" />
                 </behavior-type>
             </behaviors>
             <container>
@@ -619,6 +606,49 @@
         </object-type>
         <object-type global="1" name="Secondary_Inv_Array" sid="752054862736650">
             <plugin id="Arr" />
+            <instance-variables>
+                <instance-variable name="IsSetup" sid="645948920257275" type="boolean" />
+            </instance-variables>
+        </object-type>
+        <object-type name="AJAX" sid="959169359350314">
+            <plugin id="AJAX" />
+        </object-type>
+        <object-type name="Store" sid="962620055440468">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="261962432221826">
+                    <behavior id="solid" />
+                </behavior-type>
+                <behavior-type name="DestroyOutsideLayout" sid="289077097218277">
+                    <behavior id="destroy" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="926432230768766" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.333333" original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\project\Assets\Player1.png">
+                        <collision-poly>
+                            <point x="2.98023e-008" y="0" />
+                            <point x="1" y="0" />
+                            <point x="1" y="1" />
+                            <point x="2.98023e-008" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="INV_QTY" sid="648487981662525">
+            <plugin id="SpriteFontPlus" />
+            <behaviors>
+                <behavior-type name="Pin" sid="947654682795727">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <container>
+                <type>InventoryBox</type>
+                <type>InventoryItem</type>
+                <type>INV_QTY</type>
+            </container>
+            <texture original-source="C:\Users\Sky\DATA\Make Game\Harvest Moon\project\Assets\Sprite Font\SpriteFont_PixelFont7_Regular_(72)_[1,1,1,1]_49x78.png" />
         </object-type>
     </object-folder>
     <families>
@@ -629,6 +659,7 @@
             <instance-variables>
                 <instance-variable name="Index_Array" sid="850563499083975" type="number" />
                 <instance-variable name="Menu" sid="252002474788019" type="string" />
+                <instance-variable name="DEBUG" sid="732732505427477" type="number" />
             </instance-variables>
         </family>
     </families>
@@ -653,6 +684,7 @@
                 <use-mouse-input>Yes</use-mouse-input>
             </properties>
         </global-instance>
+        <global-instance type="AJAX" uid="43" />
     </global-instances>
     <sounds-folder />
     <music-folder />
@@ -664,6 +696,9 @@
             <file name="icon-128.png" />
             <file name="icon-256.png" />
             <file name="loading-logo.png" />
+        </file-folder>
+        <file-folder name="Data">
+            <file name="master_item.json" />
         </file-folder>
     </files-folder>
 </c2project>

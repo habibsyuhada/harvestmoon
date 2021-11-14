@@ -271,9 +271,13 @@
                                     <param id="0" name="Variable">IsChestOpen</param>
                                     <param id="1" name="Value">Chest.UID</param>
                                 </action>
-                                <action id="-9" name="Set value" sid="662345563029288" type="System">
-                                    <param id="0" name="Variable">WhatChestOpen</param>
-                                    <param id="1" name="Value">&quot;Chest&quot;</param>
+                                <action id="-9" name="Set value" sid="387143372694381" type="System">
+                                    <param id="0" name="Variable">ChestX</param>
+                                    <param id="1" name="Value">Chest.X</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="681958252088504" type="System">
+                                    <param id="0" name="Variable">ChestY</param>
+                                    <param id="1" name="Value">Chest.Y</param>
                                 </action>
                             </actions>
                             <sub-events>
@@ -295,6 +299,64 @@
                             </sub-events>
                         </event-block>
                     </sub-events>
+                </event-block>
+                <event-block sid="230033318751770">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="167985010862544" type="ActionIndicator">
+                            <param id="0" name="Object">ShippingBin</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="854687496068931" type="System">
+                            <param id="0" name="Variable">IsMenuOpen</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="522952507110991" type="System">
+                            <param id="0" name="Variable">IsChestOpen</param>
+                            <param id="1" name="Value">ShippingBin.UID</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="722548741538086" type="System">
+                            <param id="0" name="Variable">ChestX</param>
+                            <param id="1" name="Value">ShippingBin.X</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="689719333276016" type="System">
+                            <param id="0" name="Variable">ChestY</param>
+                            <param id="1" name="Value">ShippingBin.Y</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="353570286389354" type="Button">
+                            <param id="0" name="Instance variable">func</param>
+                            <param id="1" name="Value">&quot;Close Menu&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="963942408945993">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="478439328627384" type="ActionIndicator">
+                            <param id="0" name="Object">Store</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="502084172152194" type="System">
+                            <param id="0" name="Variable">IsMenuOpen</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="611102232823409" type="System">
+                            <param id="0" name="Variable">IsChestOpen</param>
+                            <param id="1" name="Value">Store.UID</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="227894846172785" type="System">
+                            <param id="0" name="Variable">ChestX</param>
+                            <param id="1" name="Value">Store.X</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="235681824328531" type="System">
+                            <param id="0" name="Variable">ChestY</param>
+                            <param id="1" name="Value">Store.Y</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="646481731403665" type="Button">
+                            <param id="0" name="Instance variable">func</param>
+                            <param id="1" name="Value">&quot;Close Menu&quot;</param>
+                        </action>
+                    </actions>
                 </event-block>
                 <event-block sid="156171423555020">
                     <conditions>
@@ -353,7 +415,7 @@
             </actions>
             <sub-events>
                 <variable constant="0" name="SoilStatus" sid="160035981800448" static="0" type="number">0</variable>
-                <variable constant="0" name="SoilStatus2" sid="390321509420713" static="0" type="number">0</variable>
+                <variable constant="0" name="Total_Sell" sid="390321509420713" static="0" type="number">0</variable>
                 <event-block sid="137822282960380">
                     <conditions>
                         <condition id="0" name="For Each List" sid="328905070201548" type="Farm_Position" />
@@ -425,6 +487,65 @@
                                 </event-block>
                             </sub-events>
                         </event-block>
+                        <event-block sid="827890926662641">
+                            <conditions>
+                                <condition id="2" name="Compare Field Value" sid="912543817593145" type="Farm_Position">
+                                    <param id="0" name="If Field">&quot;Object&quot;</param>
+                                    <param id="1" name="Is">0</param>
+                                    <param id="2" name="Value">&quot;Shipping Bin&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="11" name="Load" sid="144071737041699" type="Secondary_Inv_Array">
+                                    <param id="0" name="JSON">Farm_Position.CurrListValueAt(&quot;Object_Array&quot;)</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="643437689930154">
+                                    <conditions>
+                                        <condition id="3" name="For each element" sid="325355862169800" type="Secondary_Inv_Array">
+                                            <param id="0" name="Axes">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="821404888770534">
+                                            <conditions>
+                                                <condition id="1" name="Compare at XY" sid="600024488214761" type="Secondary_Inv_Array">
+                                                    <param id="0" name="X">Secondary_Inv_Array.CurX</param>
+                                                    <param id="1" name="Y">0</param>
+                                                    <param id="2" name="Comparison">1</param>
+                                                    <param id="3" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Add to" sid="758867665919082" type="System">
+                                                    <param id="0" name="Variable">Total_Sell</param>
+                                                    <param id="1" name="Value">floor(Master_Item.Get(Secondary_Inv_Array.At(Secondary_Inv_Array.CurX, 0), &quot;price&quot;) * Secondary_Inv_Array.At(Secondary_Inv_Array.CurX, 1) * 0.9)</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="924792775784680">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="799422931028431" type="System">
+                                                    <param id="0" name="First value">Secondary_Inv_Array.CurX</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">Secondary_Inv_Array.Width-1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Clear" sid="653824361577435" type="Secondary_Inv_Array" />
+                                                <action id="0" name="Set Value" sid="392349330118336" type="Farm_Position">
+                                                    <param id="0" name="List">Farm_Position.CurrListKey</param>
+                                                    <param id="1" name="Field">&quot;Object_Array&quot;</param>
+                                                    <param id="2" name="Value">Secondary_Inv_Array.AsJSON</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
                         <event-block sid="108168151708131">
                             <conditions>
                                 <condition id="-8" name="Compare two values" sid="740319698853105" type="System">
@@ -437,6 +558,10 @@
                                 <action id="-9" name="Set value" sid="788169277700946" type="System">
                                     <param id="0" name="Variable">SoilStatus</param>
                                     <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="273176076681288" type="System">
+                                    <param id="0" name="Variable">Gold</param>
+                                    <param id="1" name="Value">Total_Sell</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -452,6 +577,10 @@
                                 <action id="0" name="Set item" sid="281191671167808" type="LocalStorage">
                                     <param id="0" name="Key">&quot;Farm_Position&quot;</param>
                                     <param id="1" name="Value">Farm_Position.AsJSON</param>
+                                </action>
+                                <action id="0" name="Set item" sid="623190705033457" type="LocalStorage">
+                                    <param id="0" name="Key">&quot;Gold&quot;</param>
+                                    <param id="1" name="Value">Gold</param>
                                 </action>
                                 <action id="-2" name="Go to layout" sid="401099366903688" type="System">
                                     <param id="0" name="Layout">Home</param>
