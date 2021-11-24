@@ -7,22 +7,24 @@
             <conditions>
                 <condition id="-2" name="On start of layout" sid="852207238316595" type="System" />
             </conditions>
-            <actions />
-            <sub-events>
-                <event-block sid="940501211545050">
-                    <conditions>
-                        <condition id="5" name="List Count" sid="282836226125746" type="Master_Item">
-                            <param id="0" name="Is">0</param>
-                            <param id="1" name="Count">0</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="7" name="Merge JSON To Table" sid="161303048782151" type="Master_Item">
-                            <param id="0" name="JSON String">&quot;{&quot;&quot;Hoe&quot;&quot;:{&quot;&quot;name&quot;&quot;:&quot;&quot;Hoe&quot;&quot;,&quot;&quot;description&quot;&quot;:&quot;&quot;&quot;&quot;,&quot;&quot;animation_name&quot;&quot;:&quot;&quot;Tool&quot;&quot;,&quot;&quot;frame_no&quot;&quot;:&quot;&quot;1&quot;&quot;,&quot;&quot;category&quot;&quot;:&quot;&quot;Tool&quot;&quot;},&#x0D;&#x0A;&quot;&quot;Parsnip&quot;&quot;:{&quot;&quot;name&quot;&quot;:&quot;&quot;Parsnip&quot;&quot;,&quot;&quot;description&quot;&quot;:&quot;&quot;&quot;&quot;,&quot;&quot;animation_name&quot;&quot;:&quot;&quot;Crop&quot;&quot;,&quot;&quot;frame_no&quot;&quot;:&quot;&quot;1&quot;&quot;,&quot;&quot;category&quot;&quot;:&quot;&quot;Crop&quot;&quot;},&#x0D;&#x0A;&quot;&quot;Parsnip_Seed&quot;&quot;:{&quot;&quot;name&quot;&quot;:&quot;&quot;Parsnip Seed&quot;&quot;,&quot;&quot;description&quot;&quot;:&quot;&quot;&quot;&quot;,&quot;&quot;animation_name&quot;&quot;:&quot;&quot;Tool&quot;&quot;,&quot;&quot;frame_no&quot;&quot;:&quot;&quot;3&quot;&quot;,&quot;&quot;category&quot;&quot;:&quot;&quot;Seed&quot;&quot;},&#x0D;&#x0A;&quot;&quot;Water_Can&quot;&quot;:{&quot;&quot;name&quot;&quot;:&quot;&quot;Water Can&quot;&quot;,&quot;&quot;description&quot;&quot;:&quot;&quot;&quot;&quot;,&quot;&quot;animation_name&quot;&quot;:&quot;&quot;Tool&quot;&quot;,&quot;&quot;frame_no&quot;&quot;:&quot;&quot;2&quot;&quot;,&quot;&quot;category&quot;&quot;:&quot;&quot;Tool&quot;&quot;}}&quot;</param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
+            <actions>
+                <action id="1" name="Request project file" sid="348232751368912" type="AJAX">
+                    <param id="0" name="Tag">&quot;master_item&quot;</param>
+                    <param id="1" name="File">master_item.json</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="189437959509383">
+            <conditions>
+                <condition id="0" name="On completed" sid="692047643183663" type="AJAX">
+                    <param id="0" name="Tag">&quot;master_item&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Merge JSON To Table" sid="161303048782151" type="Master_Item">
+                    <param id="0" name="JSON String">AJAX.LastData</param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>

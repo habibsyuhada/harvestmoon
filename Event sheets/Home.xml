@@ -4,6 +4,7 @@
     <name>Home</name>
     <events>
         <variable constant="0" name="Start_Game_Date" sid="259073597748348" static="0" type="number">0</variable>
+        <variable constant="0" name="Gold" sid="345503838258468" static="0" type="number">0</variable>
         <include>Player</include>
         <event-block sid="702722224782638">
             <conditions>
@@ -22,6 +23,10 @@
                 </condition>
             </conditions>
             <actions>
+                <action id="0" name="Set item" sid="366240662427080" type="LocalStorage">
+                    <param id="0" name="Key">&quot;Gold&quot;</param>
+                    <param id="1" name="Value">0</param>
+                </action>
                 <action id="0" name="Set item" sid="304720585577002" type="LocalStorage">
                     <param id="0" name="Key">&quot;Start_Game_Date&quot;</param>
                     <param id="1" name="Value">Date.UnixTimestamp</param>
@@ -36,6 +41,31 @@
                     <param id="1" name="Field">&quot;Object_Array&quot;</param>
                     <param id="2" name="Value">&quot;{&quot;&quot;c2array&quot;&quot;:true,&quot;&quot;size&quot;&quot;:[25,2,1],&quot;&quot;data&quot;&quot;:[[[&quot;&quot;Hoe&quot;&quot;],[-1]],[[&quot;&quot;Water_Can&quot;&quot;],[-1]],[[&quot;&quot;Parsnip_Seed&quot;&quot;],[1]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]]]}&quot;</param>
                 </action>
+                <action id="0" name="Set Value" sid="739205548244790" type="Farm_Position">
+                    <param id="0" name="List">&quot;400, 120&quot;</param>
+                    <param id="1" name="Field">&quot;Object&quot;</param>
+                    <param id="2" name="Value">&quot;Shipping Bin&quot;</param>
+                </action>
+                <action id="0" name="Set Value" sid="379266894860470" type="Farm_Position">
+                    <param id="0" name="List">&quot;400, 120&quot;</param>
+                    <param id="1" name="Field">&quot;Object_Array&quot;</param>
+                    <param id="2" name="Value">&quot;{&quot;&quot;c2array&quot;&quot;:true,&quot;&quot;size&quot;&quot;:[25,2,1],&quot;&quot;data&quot;&quot;:[[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]]]}&quot;</param>
+                </action>
+                <action id="0" name="Set Value" sid="323420028375660" type="Farm_Position">
+                    <param id="0" name="List">&quot;376, 232&quot;</param>
+                    <param id="1" name="Field">&quot;Object&quot;</param>
+                    <param id="2" name="Value">&quot;Store&quot;</param>
+                </action>
+                <action id="0" name="Set Value" sid="418293352046698" type="Farm_Position">
+                    <param id="0" name="List">&quot;376, 232&quot;</param>
+                    <param id="1" name="Field">&quot;Control&quot;</param>
+                    <param id="2" name="Value">&quot;C_Store&quot;</param>
+                </action>
+                <action id="0" name="Set Value" sid="550919104369681" type="Farm_Position">
+                    <param id="0" name="List">&quot;376, 232&quot;</param>
+                    <param id="1" name="Field">&quot;Object_Array&quot;</param>
+                    <param id="2" name="Value">&quot;{&quot;&quot;c2array&quot;&quot;:true,&quot;&quot;size&quot;&quot;:[25,2,1],&quot;&quot;data&quot;&quot;:[[[&quot;&quot;Parsnip_Seed&quot;&quot;],[-1]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]],[[0],[0]]]}&quot;</param>
+                </action>
                 <action id="0" name="Set item" sid="911630592110583" type="LocalStorage">
                     <param id="0" name="Key">&quot;Farm_Position&quot;</param>
                     <param id="1" name="Value">Farm_Position.AsJSON</param>
@@ -44,10 +74,7 @@
                     <param id="0" name="Key">&quot;Inventory_Position&quot;</param>
                     <param id="1" name="Value">Inventory_Array.AsJSON</param>
                 </action>
-                <action id="0" name="Call function" sid="507503249151447" type="Function">
-                    <param id="0" name="Name">&quot;Check_Array_Game&quot;</param>
-                    <param id="1" name="Parameter {n}"></param>
-                </action>
+                <action id="-26" name="Restart layout" sid="419151608706401" type="System" />
             </actions>
         </event-block>
         <event-block sid="840427708954548">
@@ -102,6 +129,9 @@
                         <action id="1" name="Get item" sid="751559651273108" type="LocalStorage">
                             <param id="0" name="Key">&quot;Inventory_Position&quot;</param>
                         </action>
+                        <action id="1" name="Get item" sid="717851308673376" type="LocalStorage">
+                            <param id="0" name="Key">&quot;Gold&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
@@ -127,6 +157,19 @@
             <actions>
                 <action id="11" name="Load" sid="849766644209762" type="Inventory_Array">
                     <param id="0" name="JSON">LocalStorage.ItemValue</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="135248531820304">
+            <conditions>
+                <condition id="1" name="On item get" sid="590822167788594" type="LocalStorage">
+                    <param id="0" name="Key">&quot;Gold&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="608401444034960" type="System">
+                    <param id="0" name="Variable">Gold</param>
+                    <param id="1" name="Value">LocalStorage.ItemValue</param>
                 </action>
             </actions>
         </event-block>
